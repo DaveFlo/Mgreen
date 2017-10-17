@@ -10,7 +10,7 @@ if(localStorage.getItem("user")!=null){
     	
     	//form.append("regID",localStorage.getItem('registrationId'));
     	$.ajax({
-	url: "http://www.icone-solutions.com/tlunch/sqlOP.php",
+	url: "http://icone-solutions.com/mgreen/sqlOP.php",
 	type: "POST",
 	data: form,
 	contentType: false,
@@ -84,7 +84,7 @@ if(localStorage.getItem("user")!=null){
     }
 $(document).on('click','#logac',function(e){ 
     	e.preventDefault();
-    	$("#logac").prop("disabled",true);
+    	//$("#logac").prop("disabled",true);
 	    login();
 });
    
