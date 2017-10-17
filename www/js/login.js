@@ -4,40 +4,7 @@ if(localStorage.getItem("user")!=null){
 
    
     
-    function login(){
-    	alert("mamam");
-    	var form = new FormData($("#logForm")[0]);
-    	
-    	//form.append("regID",localStorage.getItem('registrationId'));
-    	$.ajax({
-	url: "http://icone-solutions.com/mgreen/sqlOP.php",
-	type: "POST",
-	data: form,
-	contentType: false,
-	cache: false,
-	processData:false,
-	async: false,
-	error: function(xhr, settings, exception){ alert(exception);},
-	success: function(data){
-		
-		$("#logac").prop("disabled",false);
-	    if(data.toString()!=="0"){
-	    	var datos = data.toString().split(",");
-	    	user = datos[0];
-	    	localStorage.setItem("user",user);
-	    	
-	    	$.mobile.navigate( "#land", { transition : "slide",info: "info about the #foo hash" });
-            
-
-	    }else{
-           
-	    	swal("Error","Usuario inexistente","error");
-	    }
-	    $("#enter").prop("disabled",false);
-	}
-
-        });
-    }
+    
     
     function register(){
     var form = new FormData($("#regForm")[0]);
@@ -85,7 +52,40 @@ if(localStorage.getItem("user")!=null){
 
    
 $(document).ready(function(){
-	
+	function login(){
+    	alert("mamam");
+    	var form = new FormData($("#logForm")[0]);
+    	
+    	//form.append("regID",localStorage.getItem('registrationId'));
+    	$.ajax({
+	url: "http://icone-solutions.com/mgreen/sqlOP.php",
+	type: "POST",
+	data: form,
+	contentType: false,
+	cache: false,
+	processData:false,
+	async: false,
+	error: function(xhr, settings, exception){ alert(exception);},
+	success: function(data){
+		
+		$("#logac").prop("disabled",false);
+	    if(data.toString()!=="0"){
+	    	var datos = data.toString().split(",");
+	    	user = datos[0];
+	    	localStorage.setItem("user",user);
+	    	
+	    	$.mobile.navigate( "#land", { transition : "slide",info: "info about the #foo hash" });
+            
+
+	    }else{
+           
+	    	swal("Error","Usuario inexistente","error");
+	    }
+	    $("#enter").prop("disabled",false);
+	}
+
+        });
+    }
     document.addEventListener("backbutton", function(e){
     	
     
@@ -103,7 +103,7 @@ $(document).ready(function(){
     $(".pic").on('change', function(e) {
         readURL(this);
     });
-    $("#logForm").on('submit',function(e){ 
+    $("#logForm").submit(function(e){
     	e.preventDefault();
     	//$("#logac").prop("disabled",true);
 	    login();
