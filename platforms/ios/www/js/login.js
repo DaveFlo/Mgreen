@@ -10,7 +10,7 @@ if(localStorage.getItem("user")!=null){
     	
     	//form.append("regID",localStorage.getItem('registrationId'));
     	$.ajax({
-	url: "http://www.icone-solutions.com/mgreen/sqlOP.php",
+	url: "http://www.icone-solutions.com/tlunch/sqlOP.php",
 	type: "POST",
 	data: form,
 	contentType: false,
