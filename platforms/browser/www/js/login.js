@@ -2,7 +2,7 @@ if(localStorage.getItem("user")!=null){
    $.mobile.navigate( "#land", {transition:"pop" });
 }
 
-   
+ $.mobile.allowCrossDomainPages = true;  
     
     
     
