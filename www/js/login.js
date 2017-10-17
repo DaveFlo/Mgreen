@@ -5,6 +5,7 @@ if(localStorage.getItem("user")!=null){
    
     
     function login(){
+    	alert("mamam");
     	var form = new FormData($("#logForm")[0]);
     	
     	//form.append("regID",localStorage.getItem('registrationId'));
