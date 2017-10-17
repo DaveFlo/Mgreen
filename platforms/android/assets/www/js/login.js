@@ -17,6 +17,7 @@ if(localStorage.getItem("user")!=null){
 	cache: false,
 	processData:false,
 	success: function(data){
+		alert("maddd");
 		$("#logac").prop("disabled",false);
 	    if(data.toString()!=="0"){
 	    	var datos = data.toString().split(",");
