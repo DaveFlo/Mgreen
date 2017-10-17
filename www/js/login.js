@@ -103,11 +103,11 @@ $(document).ready(function(){
     $(".pic").on('change', function(e) {
         readURL(this);
     });
-    $("#logac").on('submit',function(e){ 
+    $("#logForm").on('submit',function(e){ 
     	e.preventDefault();
     	//$("#logac").prop("disabled",true);
 	    login();
-});
+   });
    $("#regForm").on('submit', function(e) {
     	e.preventDefault();
 	
