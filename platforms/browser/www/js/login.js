@@ -84,25 +84,25 @@ $(document).ready(function(){
     	
     
            if($.mobile.activePage.is('#inicio')||$.mobile.activePage.is('#land')){
-               console.log("mmama");
+              
            }
            else {
                navigator.app.backHistory()
           }
          }, false);
-    $("#logForm").submit(function(e){
+    $("#logForm").on('submit', function(e) {
     	e.preventDefault();
     	$("#logac").prop("disabled",true);
 	    login();
    });
    
-    $(".imch").click(function(){
+    $(".imch").on('click', function(e) {
        $(this).next().click();
     });
-    $(".pic").change(function(){
+    $(".pic").on('change', function(e) {
         readURL(this);
     });
-   $("#regForm").submit(function(e){
+   $("#regForm").on('submit', function(e) {
     	e.preventDefault();
 	
 	    swal({
