@@ -81,6 +81,16 @@ if(localStorage.getItem("user")!=null){
 
         });
     }
+var connectionStatus = false;
+
+$(document).on('pagebeforeshow', '#inicio', function () {
+    setInterval(function () {
+        connectionStatus = navigator.onLine ? 'online' : 'offline';
+    }, 100);
+    $(document).on('click', '#check-connection', function () {
+        alert(connectionStatus);
+    });
+});
 $(document).ready(function(){
 	
     document.addEventListener("backbutton", function(e){
