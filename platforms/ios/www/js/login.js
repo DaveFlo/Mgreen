@@ -19,7 +19,7 @@ if(localStorage.getItem("user")!=null){
 	async: false,
 	error: function(xhr, settings, exception){ alert(exception);},
 	success: function(data){
-		alert("maddd");
+		
 		$("#logac").prop("disabled",false);
 	    if(data.toString()!=="0"){
 	    	var datos = data.toString().split(",");
@@ -82,11 +82,7 @@ if(localStorage.getItem("user")!=null){
             reader.readAsDataURL(input.files[0]);
         }
     }
-$(document).on('click','#logac',function(e){ 
-    	e.preventDefault();
-    	//$("#logac").prop("disabled",true);
-	    login();
-});
+
    
 $(document).ready(function(){
 	
@@ -107,6 +103,11 @@ $(document).ready(function(){
     $(".pic").on('change', function(e) {
         readURL(this);
     });
+    $("#logac").on('submit',function(e){ 
+    	e.preventDefault();
+    	//$("#logac").prop("disabled",true);
+	    login();
+});
    $("#regForm").on('submit', function(e) {
     	e.preventDefault();
 	
