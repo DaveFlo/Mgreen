@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+   <meta http-equiv="Content-Security-Policy" content="default-src *; img-src * 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *" />
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/sweetalert.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <title>Mgreen</title>
+</head>
+
+<body>
+   <div data-role="page" id="inicio">
+
+  <div data-role="header">
+    <h1>Bienvenido</h1>
+  </div>
+
+  <div data-role="main" class="ui-content">
+   <form id="logForm" method="post">
+     
+     <label for="user">Correo</label>
+     <input type="text" data-clear-btn="true" name="user" id="user" value="">
+    
+     <input id="logac" type="submit" data-corners="false" value="Entrar">
+   </form>
+   <a href="#register" class="regt" data-transition="flip">¿Aún no estas registrado? Hazlo ahora</a>
+  </div>
+  
+ 
+
+  </div>
+  <div data-role="page" id="register">
+
+  <div data-role="header">
+    <h1>Registro</h1>
+  </div>
+
+  <div data-role="main" class="ui-content">
+    <form id="regForm" method="post">
+     
+     <label for="nombre">Nombre Completo</label>
+     <input type="text" data-clear-btn="true" name="nombre" id="nombre" value="">
+     <label for="comp">Compañia</label>
+     <input type="text" data-clear-btn="true" name="comp" id="comp" value="">
+     <label for="address">Dirección</label>
+     <textarea class="regarea" name="address"  id="address"></textarea>
+     <label for="state">Estado</label>
+     <select name="state" id="state" data-native-menu="false">
+
+
+<option value="Aguascalientes">Aguascalientes</option>
+<option value="Baja California">Baja California</option>
+<option value="Baja California Sur">Baja California Sur</option>
+<option value="Campeche">Campeche</option>
+<option value="Coahuila de Zaragoza">Coahuila de Zaragoza</option>
+<option value="Colima">Colima</option>
+<option value="Chiapas">Chiapas</option>
+<option value="Chihuahua">Chihuahua</option>
+<option value="Distrito Federal">Distrito Federal</option>
+<option value="Durango">Durango</option>
+<option value="Guanajuato">Guanajuato</option>
+<option value="Guerrero">Guerrero</option>
+<option value="Hidalgo">Hidalgo</option>
+<option value="Jalisco">Jalisco</option>
+<option value="México">México</option>
+<option value="Michoacán de Ocampo">Michoacán de Ocampo</option>
+<option value="Morelos">Morelos</option>
+<option value="Nayarit">Nayarit</option>
+<option value="Nuevo León">Nuevo León</option>
+<option value="Oaxaca">Oaxaca</option>
+<option value="Puebla">Puebla</option>
+<option value="Querétaro">Querétaro</option>
+<option value="Quintana Roo">Quintana Roo</option>
+<option value="San Luis Potosí">San Luis Potosí</option>
+<option value="Sinaloa">Sinaloa</option>
+<option value="Sonora">Sonora</option>
+<option value="Tabasco">Tabasco</option>
+<option value="Tamaulipas">Tamaulipas</option>
+<option value="Tlaxcala">Tlaxcala</option>
+<option value="Veracruz de Ignacio de la Llave">Veracruz de Ignacio de la Llave</option>
+<option value="Yucatán">Yucatán</option>
+<option value="Zacatecas">Zacatecas</option>
+
+        </select>
+     <label for="city">Ciudad</label>
+     <input type="text" data-clear-btn="true" name="city" id="city" value="">
+     <label for="mail">E-mail</label>
+     <input type="text" data-clear-btn="true" name="mail" id="mail" value="">
+     <label for="telefono">Teléfono</label>
+     <input type="text" data-clear-btn="true" name="telefono" id="telefono" value="">
+     <label for="cellp">Celular</label>
+     <input type="text" data-clear-btn="true" name="cellp" id="cellp" value="">
+     <label for="job">¿A qué te dedicas?</label>
+     <select name="job" id="job" data-native-menu="false">
+     	<option value="Fabricante">Fabricante</option>
+     	<option value="Reciclante">Reciclante</option>
+     	<option value="Revendedor">Revendedor</option>
+     </select>
+     <input type="submit" data-corners="false" value="Entrar">
+   </form>
+  </div>
+  
+  
+
+  </div>
+<div data-role="page" id="land">
+
+  <div data-role="header">
+    <h1>Bienvenido</h1>
+    <a href="#landPanel" data-icon="bars" data-iconpos="notext" ></a>
+  </div>
+  <div data-role="main" class="ui-content">
+   <div class="ui-grid-a">
+    <div class="ui-block-a sprods">
+    	<img width="100%" src="img/no_image_startup.png" />
+    	<div class="ui-bar " >Block A</div>
+    </div>
+    <div class="ui-block-b sprods">
+    	<img width="100%" src="img/no_image_startup.png" />
+    	<div class="ui-bar " >Block B</div>
+    </div>
+   </div>
+   <br />
+   <div class="ui-grid-a">
+    <div class="ui-block-a sprods">
+    	<img width="100%" src="img/no_image_startup.png" />
+    	<div class="ui-bar " >Block A</div>
+    </div>
+    <div class="ui-block-b sprods">
+    	<img width="100%" src="img/no_image_startup.png" />
+    	<div class="ui-bar " >Block B</div>
+    </div>
+   </div>
+  </div>
+  
+ <div data-role="panel" data-display="push" data-theme="b" id="landPanel">
+        <ul data-role="listview">
+                <li><a href="#land" data-transition="slidedown">Inicio</a></li>
+                <li><a href="#sell" data-transition="slideup">Vender</a></li>
+                <li><a href="#panel-responsive-page2">Autocomplete</a></li>
+                <li><a href="#panel-responsive-page2">Buttons</a></li>
+                <li><a href="#panel-responsive-page2">Checkboxes</a></li>
+        </ul>
+    </div>
+
+  </div>
+  <div data-role="page" id="sell">
+
+  <div data-role="header">
+    <h1>Vende</h1>
+    <a href="#sellPanel" data-icon="bars" data-iconpos="notext" ></a>
+  </div>
+  <div data-role="main" class="ui-content">
+   <form id="regForm" method="post">
+     <div class="ui-grid-a">
+     	<div class="ui-block-a gray">
+     		<div class="choosei">
+     		<img class="imgup" src="img/no_image_startup.png" alt="your image" />
+     		<a class="ui-btn ui-shadow ui-corner-all ui-icon-plus ui-btn-icon-notext imch">plus</a>
+     		<input type="file" class="pic" data-role="none" name="pic1" />
+     		</div>
+     	</div>
+     	<div class="ui-block-b gray">
+     		<div class="choosei">
+     		<a class="ui-btn ui-shadow ui-corner-all ui-icon-plus ui-btn-icon-notext imch">plus</a>
+     		<input type="file" class="pic" data-role="none" name="pic2" />
+     		</div>
+     	</div>
+     </div>
+     <br/>
+     <label for="mate">Material</label>
+     <select name="mate" id="mate" data-native-menu="false">
+     	<option value="1">1</option>
+     	<option value="2">2</option>
+     	<option value="3">3</option>
+     	<option value="4">4</option>
+     	<option value="5">5</option>
+     	<option value="6">6</option>
+     	<option value="7">7</option>
+     </select>
+     <label for="origin">Origen</label>
+     <select name="origin" id="origin" data-native-menu="false">
+     	<option value="Post Industrial">Post Industrial</option>
+     	<option value="Post Consumo">Post Consumo</option>
+     </select>
+     <label for="origin">Presentación</label>
+     <select name="origin" id="origin" data-native-menu="false">
+     	<option value="Pieza">Pieza</option>
+     	<option value="Purga">Purga</option>
+     	<option value="Barredura">Barredura</option>
+     	<option value="Molido">Molido</option>
+     	<option value="Otro">Otro</option>
+     </select>
+     <label for="empaq">Presentación</label>
+     <select name="empaq" id="empaq" data-native-menu="false">
+     	<option value="Super saco">Super saco</option>
+     	<option value="Gaylor">Gaylor</option>
+     	<option value="Costal">Costal</option>
+     	<option value="Paca">Paca</option>
+     </select>
+     <label for="color">Color</label>
+     <select name="color" id="color" data-native-menu="false">
+     	<option value="Cristal natural">Cristal natural</option>
+     	<option value="Cristal transparente">Cristal transparente</option>
+     	<option value="Verde">Verde</option>
+     	<option value="Azul">Azul</option>
+     	<option value="Otro">Otro</option>
+     </select>
+     <label for="esps">Especificación</label>
+     <textarea class="rega" name="esps"  id="esps"></textarea>
+     <label for="price">Precio</label>
+     <input type="number" data-clear-btn="true" name="price" id="price" value="">
+     <label for="cant">Cantidad</label>
+     <input type="number" data-clear-btn="true" name="cant" id="cant" pattern="[0-9]*" value="">
+     <label for="unit">Unidad</label>
+     <select name="unit" id="unit" data-native-menu="false">
+     	<option value="Tonelada">Tonelada</option>
+     	<option value="Kilogramo">Kilogramo</option>
+     </select>
+     <label for="recu">Recurrencia</label>
+     <select name="recu" id="recu" data-native-menu="false">
+     	<option value="Unico Lote">Unico Lote</option>
+     	<option value="Semanal">Semanal</option>
+     	<option value="Cada més">Cada més</option>
+     </select>
+     <label for="ubic">Ubicación del material</label>
+     <input type="text" data-clear-btn="true" name="ubic" id="ubic" value="">
+     <label for="info">Información general</label>
+     <textarea class="rega" name="info"  id="info"></textarea>
+    </form>
+   
+   
+  </div>
+  
+ <div data-role="panel" data-display="push" data-theme="b" id="sellPanel">
+        <ul data-role="listview">
+                <li><a href="#land" data-transition="slidedown">Inicio</a></li>
+                <li><a href="#sell" data-transition="slideup">Vender</a></li>
+                <li><a href="#panel-responsive-page2">Autocomplete</a></li>
+                <li><a href="#panel-responsive-page2">Buttons</a></li>
+                <li><a href="#panel-responsive-page2">Checkboxes</a></li>
+        </ul>
+    </div>
+
+  </div>
+    <script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+    <script type="text/javascript" src="js/sweetalert.min.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+    </script>
+</body>
+
+</html>
