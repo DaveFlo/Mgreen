@@ -16,6 +16,7 @@ if(localStorage.getItem("user")!=null){
 	contentType: false,
 	cache: false,
 	processData:false,
+	error: function(xhr, settings, exception){ alert(exception);},
 	success: function(data){
 		alert("maddd");
 		$("#logac").prop("disabled",false);
