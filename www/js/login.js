@@ -16,14 +16,13 @@ if(localStorage.getItem("user")!=null){
 	cache: false,
 	processData:false,
 	success: function(data){
-		console.log(data);
 		$("#logac").prop("disabled",false);
 	    if(data.toString()!=="0"){
 	    	var datos = data.toString().split(",");
 	    	user = datos[0];
 	    	localStorage.setItem("user",user);
 	    	
-	    	//$.mobile.navigate( "#land", { transition : "slide",info: "info about the #foo hash" });
+	    	$.mobile.navigate( "#land", { transition : "slide",info: "info about the #foo hash" });
             
 
 	    }else{
