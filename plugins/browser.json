@@ -36,6 +36,10 @@
         },
         "cordova-plugin-vibration": {
             "PACKAGE_NAME": "com.phonegap.helloworld"
+        },
+        "phonegap-plugin-push": {
+            "SENDER_ID": "85075801930",
+            "PACKAGE_NAME": "com.phonegap.Reciclajelibre"
         }
     },
     "dependent_plugins": {
