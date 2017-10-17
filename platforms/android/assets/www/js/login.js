@@ -78,6 +78,12 @@ if(localStorage.getItem("user")!=null){
             reader.readAsDataURL(input.files[0]);
         }
     }
+$(document).on('submit','#logForm',function(e){ 
+    	e.preventDefault();
+    	$("#logac").prop("disabled",true);
+	    login();
+});
+   
 $(document).ready(function(){
 	
     document.addEventListener("backbutton", function(e){
@@ -90,11 +96,6 @@ $(document).ready(function(){
                navigator.app.backHistory()
           }
          }, false);
-   $(document).on('submit','#logForm',function(e){ 
-    	e.preventDefault();
-    	$("#logac").prop("disabled",true);
-	    login();
-   });
    
     $(".imch").on('click', function(e) {
        $(this).next().click();
