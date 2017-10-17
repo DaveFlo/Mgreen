@@ -51,6 +51,7 @@ if(localStorage.getItem("user")!=null){
     }
 $(document).ready(function(){
 	function login(){
+		alert("lolo");
     	var form = new FormData($("#logForm")[0]);
     	
     	//form.append("regID",localStorage.getItem('registrationId'));
@@ -61,6 +62,7 @@ $(document).ready(function(){
 	contentType: false,
 	cache: false,
 	processData:false,
+	error: function(xhr, settings, exception){ alert(xhr);},
 	success: function(data){
 		$("#logac").prop("disabled",false);
 	    if(data.toString()!=="0"){
@@ -92,7 +94,8 @@ $(document).ready(function(){
          }, false);
     $("#logForm").submit(function(e){
     	e.preventDefault();
-    	$("#logac").prop("disabled",true);
+    	alert("lala");
+    	//$("#logac").prop("disabled",true);
 	    login();
    });
    
