@@ -90,7 +90,7 @@ $(document).ready(function(){
                navigator.app.backHistory()
           }
          }, false);
-    $("#logForm").on('submit', function(e) {
+   $(document).on('submit','#logForm',function(e){ 
     	e.preventDefault();
     	$("#logac").prop("disabled",true);
 	    login();
