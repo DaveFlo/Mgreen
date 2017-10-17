@@ -2,7 +2,7 @@ if(localStorage.getItem("user")!=null){
    $.mobile.navigate( "#land", {transition:"pop" });
 }
 
- $.mobile.allowCrossDomainPages = true;  
+
     
     
     
@@ -52,13 +52,11 @@ if(localStorage.getItem("user")!=null){
 $(document).ready(function(){
 	function login(){
 		alert("lolo");
-    	var form = new FormData($("#logForm")[0]);
     	$.post( "http://www.icone-solutions.com/mgreen/sqlOP.php", $( "#logForm" ).serialize() ).done(function(data) {
-    alert( data );
-  })
-  .fail(function(e) {
-    alert( e.responseText );
-  });
+             alert( data );
+         }).fail(function(e) {
+             alert( e.responseText );
+          });
     	//form.append("regID",localStorage.getItem('registrationId'));
     
     }
