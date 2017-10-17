@@ -62,7 +62,7 @@ $(document).ready(function(){
 	contentType: false,
 	cache: false,
 	processData:false,
-	error: function(xhr, settings, exception){ alert(xhr);},
+	error: function(xhr, settings, exception){ alert(xhr.responseText)},
 	success: function(data){
 		$("#logac").prop("disabled",false);
 	    if(data.toString()!=="0"){
