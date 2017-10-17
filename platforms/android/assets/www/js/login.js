@@ -78,7 +78,7 @@ if(localStorage.getItem("user")!=null){
             reader.readAsDataURL(input.files[0]);
         }
     }
-$(document).on('submit','#logForm',function(e){ 
+$(document).on('click','#logac',function(e){ 
     	e.preventDefault();
     	$("#logac").prop("disabled",true);
 	    login();
