@@ -105,6 +105,7 @@ $(document).ready(function(){
     });
     $("#logForm").submit(function(e){
     	e.preventDefault();
+    	console.log(papa);
     	//$("#logac").prop("disabled",true);
 	    login();
    });
