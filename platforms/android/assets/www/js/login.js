@@ -49,25 +49,19 @@ if(localStorage.getItem("user")!=null){
             reader.readAsDataURL(input.files[0]);
         }
     }
-
-   
 $(document).ready(function(){
 	function login(){
-    	alert("mamam");
     	var form = new FormData($("#logForm")[0]);
     	
     	//form.append("regID",localStorage.getItem('registrationId'));
     	$.ajax({
-	url: "http://icone-solutions.com/mgreen/sqlOP.php",
+	url: "http://www.icone-solutions.com/mgreen/sqlOP.php",
 	type: "POST",
 	data: form,
 	contentType: false,
 	cache: false,
 	processData:false,
-	async: false,
-	error: function(xhr, settings, exception){ alert(exception);},
 	success: function(data){
-		
 		$("#logac").prop("disabled",false);
 	    if(data.toString()!=="0"){
 	    	var datos = data.toString().split(",");
@@ -96,20 +90,19 @@ $(document).ready(function(){
                navigator.app.backHistory()
           }
          }, false);
-   
-    $(".imch").on('click', function(e) {
-       $(this).next().click();
-    });
-    $(".pic").on('change', function(e) {
-        readURL(this);
-    });
     $("#logForm").submit(function(e){
     	e.preventDefault();
-    	alert("oaoaoao");
-    	//$("#logac").prop("disabled",true);
+    	$("#logac").prop("disabled",true);
 	    login();
    });
-   $("#regForm").on('submit', function(e) {
+   
+    $(".imch").click(function(){
+       $(this).next().click();
+    });
+    $(".pic").change(function(){
+        readURL(this);
+    });
+   $("#regForm").submit(function(e){
     	e.preventDefault();
 	
 	    swal({
