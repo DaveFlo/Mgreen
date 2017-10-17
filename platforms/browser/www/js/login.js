@@ -8,7 +8,7 @@ if(localStorage.getItem("user")!=null){
     
     function register(){
     var form = new FormData($("#regForm")[0]);
-    	$.post({
+    	$.ajax({
 	url: "http://www.icone-solutions.com/mgreen/sqlOP.php",
 	type: "POST",
 	data: form,
@@ -49,17 +49,40 @@ if(localStorage.getItem("user")!=null){
             reader.readAsDataURL(input.files[0]);
         }
     }
-$(document).ready(function(){
-	function login(){
+    function login(){
 		alert("lolo");
-    	$.post( "http://www.icone-solutions.com/mgreen/sqlOP.php", $( "#logForm" ).serialize() ).done(function(data) {
-             alert( data );
-         }).fail(function(e) {
-             alert( e.responseText );
-          });
+    	var form = new FormData($("#logForm")[0]);
+    	
     	//form.append("regID",localStorage.getItem('registrationId'));
-    
+    	$.ajax({
+	url: "http://www.icone-solutions.com/mgreen/sqlOP.php",
+	type: "POST",
+	data: form,
+	contentType: false,
+	cache: false,
+	processData:false,
+	error: function(xhr, settings, exception){ alert(xhr.responseText)},
+	success: function(data){
+		$("#logac").prop("disabled",false);
+	    if(data.toString()!=="0"){
+	    	var datos = data.toString().split(",");
+	    	user = datos[0];
+	    	localStorage.setItem("user",user);
+	    	
+	    	$.mobile.navigate( "#land", { transition : "slide",info: "info about the #foo hash" });
+            
+
+	    }else{
+           
+	    	swal("Error","Usuario inexistente","error");
+	    }
+	    $("#enter").prop("disabled",false);
+	}
+
+        });
     }
+$(document).ready(function(){
+	
     document.addEventListener("backbutton", function(e){
     	
     
@@ -72,9 +95,9 @@ $(document).ready(function(){
          }, false);
     $("#logForm").submit(function(e){
     	e.preventDefault();
-    	alert("lala");
+    	
     	//$("#logac").prop("disabled",true);
-	    login();
+	    setTimeout("login()",3000);
    });
    
     $(".imch").click(function(){
