@@ -394,7 +394,8 @@ module.exports.metadata =
     "cordova-plugin-media-capture": "1.4.3",
     "cordova-plugin-network-information": "1.3.3",
     "cordova-plugin-vibration": "2.1.5",
-    "phonegap-plugin-push": "1.10.5"
+    "phonegap-plugin-push": "1.10.5",
+    "cordova-plugin-whitelist": "1.3.2"
 };
 // BOTTOM OF METADATA
 });
