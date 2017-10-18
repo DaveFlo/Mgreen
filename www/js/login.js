@@ -50,7 +50,7 @@ if(localStorage.getItem("user")!=null){
         }
     }
     function login(){
-		alert("lolo");
+	
     	var form = new FormData($("#logForm")[0]);
     	
     	//form.append("regID",localStorage.getItem('registrationId'));
@@ -76,21 +76,14 @@ if(localStorage.getItem("user")!=null){
            
 	    	swal("Error","Usuario inexistente","error");
 	    }
-	    $("#enter").prop("disabled",false);
+	    
 	}
 
         });
     }
 var connectionStatus = false;
 
-$(document).on('pagebeforeshow', '#inicio', function () {
-    setInterval(function () {
-        connectionStatus = navigator.onLine ? 'online' : 'offline';
-    }, 100);
-    $(document).on('click', '#check-connection', function () {
-        console.log(connectionStatus);
-    });
-});
+
 $(document).ready(function(){
 	
     document.addEventListener("backbutton", function(e){
@@ -106,8 +99,8 @@ $(document).ready(function(){
     $("#logForm").submit(function(e){
     	e.preventDefault();
     	
-    	//$("#logac").prop("disabled",true);
-	    setTimeout("login()",3000);
+    	$("#logac").prop("disabled",true);
+	    login();
    });
    
     $(".imch").click(function(){
@@ -138,35 +131,9 @@ $(document).ready(function(){
    });
    
 
-
-      // STARTS and Resets the loop if any
-    $(".menub").click(function(){
-    	getCredit();
-    });
 	
-	function getSchools(){
-	$.ajax({
-	url: "http://www.icone-solutions.com/tlunch/sqlOP.php",
-	type: "POST",
-	data: {school: 1},
-	
-	success: function(data){
-            
-		var jsonObj = jQuery.parseJSON(data);
-		var id = jsonObj[0].split(",");
-		var nombres = jsonObj[1].split(",");
-		if(nombres[0]!=""){
-		for(var i=0;i<nombres.length;i++){
-			
-			$("#schoolList").append('<option value="'+id[i]+'">'+nombres[i]+'</option>');
-		}
-       }
-    }
-   
-    });
-    }
 
 
-getSchools();
+
 
 });

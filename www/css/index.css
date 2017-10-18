@@ -115,6 +115,118 @@ h1 {
 .pic{
 	display: none !important;
 }
+.wimg img{
+	width: 130px;
+	display:table;
+	margin:auto;
+}
+
+.arrow_box a {
+	color: #fff !important;
+	text-decoration:none;
+	display: table;
+	margin: auto;
+}
+.toph{
+	background: #fff !important;
+	border-bottom: 1px solid #000 !important;
+}
+.start{
+	color:#f89600 !important;
+	text-decoration: none;
+	text-align: right;
+	line-height: 60px;
+	margin: 0 1.0em 0 0 !important;
+}
+.htitle{
+	text-align:left !important;
+	min-height: 1em !important;
+	margin: 0 0 0 3.0em !important;
+	line-height: 20px;
+	font-size: 20px !important;
+}
+.menuicon{
+	font-size:20px !important;
+	top: .7125em !important;
+	left: .7125em !important;
+	border-radius: 0 !important;
+	background: #fff !important;
+	border: 1px solid #000 !important;
+}
+.menuicon:focus{
+	-webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
+}
+.menuicon:after {
+  -webkit-border-radius: 0 !important;
+  border-radius: 0 !important;
+} 
+.arrow_box {
+	color: #fff;
+	position: relative;
+	padding: 13px 0;
+	width: 120px;
+	display:table;
+	margin:auto;
+	background: #00b100;
+}
+.arrow_box:after, .arrow_box:before {
+	bottom: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.arrow_box:after {
+	
+	border-bottom-color: #00b100;
+	border-width: 2px;
+	margin-left: -2px;
+}
+.arrow_box:before {
+	
+	border-bottom-color: #00b100;
+	border-width: 8px;
+	margin-left: -8px;
+}
+.welcome,.filter{
+	margin-top: 3em;
+}
+.filter{
+	margin-bottom: 3em;
+}
+.welcome h1{
+	color:#acacac;
+}
+#filters-button{
+	background: #606060 !important;
+	 border-radius: 0 !important;
+	 box-shadow: none! important;
+}
+#filters-button:focus{
+ box-shadow: none! important;
+	
+}
+.ui-select .ui-btn>span:not(.ui-li-count){
+	text-shadow: none !important;
+	color: #fff;
+	text-align: left;
+}
+.filter h1{
+	font-size: 18px;
+	font-weight: bolder;
+	color: #f89600 !important;
+}
+.cent3{
+	color: #acacac;
+	text-align: center;
+	font-weight:bolder;
+}
 .imch{
 	display: table;
 	margin: auto;

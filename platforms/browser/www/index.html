@@ -59,7 +59,7 @@
      
      <label for="user">Correo</label>
      <input type="text" data-clear-btn="true" name="user" id="user" value="">
-    <input id="check-connection" type="button"  class="show-page-loading-msg" data-textonly="false" data-textvisible="false" data-corners="false" value="test">
+   
      <input id="logac" type="submit"  class="show-page-loading-msg" data-textonly="false" data-textvisible="false" data-corners="false" value="Entrar">
    </form>
    <a href="#register" class="regt" data-transition="flip">¿Aún no estas registrado? Hazlo ahora</a>
@@ -144,11 +144,167 @@
   </div>
 <div data-role="page" id="land">
 
-  <div data-role="header">
-    <h1>Bienvenido</h1>
-    <a href="#landPanel" data-icon="bars" data-iconpos="notext" ></a>
+  <div data-role="header" class="toph">
+    <h2 class="htitle" >Reciclaje <br/>Libre</h2>
+    <a href="#landPanel" class="menuicon ui-nodisc-icon ui-nosvg ui-alt-icon "  data-icon="bars" data-iconpos="notext" ></a>
+    <a href="#land" data-role="none" class="start" data-transition="slidedown" >Inicio</a>
   </div>
   <div data-role="main" class="ui-content">
+   
+   <div class="welcome">
+   	<h1>Bienvenido</h1>
+   	<h1>Reciclaje Libre</h1>
+   	<h3 class="cent3">¿Qué deseas hacer?</h3>
+   </div>
+   <br/><br/>
+   <div class="ui-grid-a">
+    <div class="ui-block-a wimg">
+    	<img  src="img/hexagono-regular.png" />
+    	<br />
+    	<div class="arrow_box" >
+    		<a href="#sell" data-transition="slideup">Vender</a>
+    	</div>
+    </div>
+    <div class="ui-block-b wimg">
+    	<img   src="img/hexagono-regular.png" />
+    	<br />
+    	<div class="arrow_box" >
+    		<a href="#buy" data-transition="slideup">Comprar</a>
+    	</div>
+    </div>
+   </div>
+  </div>
+  
+ <div data-role="panel" data-display="overlay" data-theme="b" id="landPanel">
+        <ul data-role="listview">
+                <li><a href="#Myaccount" data-transition="slide">Mi cuenta</a></li>
+                <li><a href="#cats" data-transition="flip">Anuncios</a></li>
+                <li><a href="#sell" data-transition="slideup">Publicar</a></li>
+        </ul>
+    </div>
+
+  </div>
+
+<div data-role="page" id="cats">
+  <div data-role="header" class="toph">
+    <h2 class="htitle" >Reciclaje <br/>Libre</h2>
+    <a href="#catPanel" class="menuicon ui-nodisc-icon ui-nosvg ui-alt-icon "  data-icon="bars" data-iconpos="notext" ></a>
+    <a href="#land" data-role="none" class="start" data-transition="slidedown" >Inicio</a>
+  </div>
+  
+  <div data-role="main" class="ui-content">
+  	<div class="welcome">
+   	<h1>Ahora puedes</h1>
+   	<h1>comenzar</h1>
+   	<h3 class="cent3">Elige una categoría para ver</h3>
+   </div>
+   <br/><br/>
+   <div class="ui-grid-c">
+    <div class="ui-block-a sprods">
+    	<a href="#prod">
+    	<img width="100%" src="img/no_image_startup.png" />
+    	<div class="ui-bar " >Block A</div>
+    	</a>
+    </div>
+    <div class="ui-block-b sprods">
+    	<img width="100%" src="img/no_image_startup.png" />
+    	<div class="ui-bar " >Block B</div>
+    </div>
+    <div class="ui-block-c sprods">
+    	<img width="100%" src="img/no_image_startup.png" />
+    	<div class="ui-bar " >Block c</div>
+    </div>
+    <div class="ui-block-d sprods">
+    	<img width="100%" src="img/no_image_startup.png" />
+    	<div class="ui-bar " >Block D</div>
+    </div>
+   </div>
+   <br />
+   <div class="ui-grid-c">
+    <div class="ui-block-a sprods">
+    	<img width="100%" src="img/no_image_startup.png" />
+    	<div class="ui-bar " >Block A</div>
+    </div>
+    <div class="ui-block-b sprods">
+    	<img width="100%" src="img/no_image_startup.png" />
+    	<div class="ui-bar " >Block B</div>
+    </div>
+    <div class="ui-block-c sprods">
+    	<img width="100%" src="img/no_image_startup.png" />
+    	<div class="ui-bar " >Block c</div>
+    </div>
+    <div class="ui-block-d sprods">
+    	<img width="100%" src="img/no_image_startup.png" />
+    	<div class="ui-bar " >Block D</div>
+    </div>
+   </div>
+  </div>
+  
+ <div data-role="panel" data-display="push" data-theme="b" id="catPanel">
+        <ul data-role="listview">
+                <li><a href="#Myaccount" data-transition="slide">Mi cuenta</a></li>
+                <li><a href="#cats" data-transition="flip">Anuncios</a></li>
+                <li><a href="#sell" data-transition="slideup">Publicar</a></li>
+        </ul>
+    </div>
+
+  </div>
+
+<div data-role="page" id="prod">
+  <div data-role="header" class="toph">
+    <h2 class="htitle" >Reciclaje <br/>Libre</h2>
+    <a href="#prodPanel" class="menuicon ui-nodisc-icon ui-nosvg ui-alt-icon "  data-icon="bars" data-iconpos="notext" ></a>
+    <a href="#land" data-role="none" class="start" data-transition="slidedown" >Inicio</a>
+  </div>
+  
+  <div data-role="main" class="ui-content">
+  	<div class="filter">
+  		
+    <select name="filters" id="filters" multiple="multiple" data-native-menu="false">
+        <option>Buscar por</option>
+        
+        <optgroup label="Origen">
+            <option value="Post Industrial">Post Industrial</option>
+     	    <option value="Post Consumo">Post Consumo</option>
+        </optgroup>
+        <optgroup label="Presentación">
+            <option value="Pieza">Pieza</option>
+     	    <option value="Purga">Purga</option>
+     	    <option value="Barredura">Barredura</option>
+     	    <option value="Molido">Molido</option>
+     	    <option value="Otro">Otro</option>
+        </optgroup>
+        <optgroup label="Empaque">
+            <option value="Super saco">Super saco</option>
+     	    <option value="Gaylor">Gaylor</option>
+     	    <option value="Costal">Costal</option>
+     	    <option value="Paca">Paca</option>
+        </optgroup>
+        <optgroup label="Color">
+            <option value="Cristal natural">Cristal natural</option>
+     	    <option value="Cristal transparente">Cristal transparente</option>
+     	    <option value="Verde">Verde</option>
+     	    <option value="Azul">Azul</option>
+     	    <option value="Otro">Otro</option>
+        </optgroup>
+        <optgroup label="Precio">
+            <option value="5">Menor a Mayor</option>
+            <option value="6">Mayor a Menor</option>
+        </optgroup>
+        <optgroup label="Unidad">
+            <option value="Tonelada">Tonelada</option>
+     	    <option value="Kilogramo">Kilogramo</option>
+        </optgroup>
+        <optgroup label="Recurrencia">
+            <option value="Unico Lote">Unico Lote</option>
+     	    <option value="Semanal">Semanal</option>
+     	    <option value="Cada més">Cada més</option>
+        </optgroup>
+    </select>
+    <br/>
+   	 <h1>Categoría</h1>
+   	
+     </div>
    <div class="ui-grid-a">
     <div class="ui-block-a sprods">
     	<img width="100%" src="img/no_image_startup.png" />
@@ -172,22 +328,22 @@
    </div>
   </div>
   
- <div data-role="panel" data-display="push" data-theme="b" id="landPanel">
+ <div data-role="panel" data-display="push" data-theme="b" id="prodPanel">
         <ul data-role="listview">
-                <li><a href="#land" data-transition="slidedown">Inicio</a></li>
-                <li><a href="#sell" data-transition="slideup">Vender</a></li>
-                <li><a href="#panel-responsive-page2">Autocomplete</a></li>
-                <li><a href="#panel-responsive-page2">Buttons</a></li>
-                <li><a href="#panel-responsive-page2">Checkboxes</a></li>
+                <li><a href="#Myaccount" data-transition="slide">Mi cuenta</a></li>
+                <li><a href="#cats" data-transition="flip">Anuncios</a></li>
+                <li><a href="#sell" data-transition="slideup">Publicar</a></li>
         </ul>
     </div>
 
   </div>
+  
   <div data-role="page" id="sell">
 
-  <div data-role="header">
-    <h1>Vende</h1>
-    <a href="#sellPanel" data-icon="bars" data-iconpos="notext" ></a>
+  <div data-role="header" class="toph">
+    <h2 class="htitle" >Reciclaje <br/>Libre</h2>
+    <a href="#sellPanel" class="menuicon ui-nodisc-icon ui-nosvg ui-alt-icon "  data-icon="bars" data-iconpos="notext" ></a>
+    <a href="#land" data-role="none" class="start" data-transition="slidedown" >Inicio</a>
   </div>
   <div data-role="main" class="ui-content">
    <form id="regForm" method="post">
@@ -230,7 +386,7 @@
      	<option value="Molido">Molido</option>
      	<option value="Otro">Otro</option>
      </select>
-     <label for="empaq">Presentación</label>
+     <label for="empaq">Empaque</label>
      <select name="empaq" id="empaq" data-native-menu="false">
      	<option value="Super saco">Super saco</option>
      	<option value="Gaylor">Gaylor</option>
@@ -273,11 +429,9 @@
   
  <div data-role="panel" data-display="push" data-theme="b" id="sellPanel">
         <ul data-role="listview">
-                <li><a href="#land" data-transition="slidedown">Inicio</a></li>
-                <li><a href="#sell" data-transition="slideup">Vender</a></li>
-                <li><a href="#panel-responsive-page2">Autocomplete</a></li>
-                <li><a href="#panel-responsive-page2">Buttons</a></li>
-                <li><a href="#panel-responsive-page2">Checkboxes</a></li>
+                <li><a href="#Myaccount" data-transition="slide">Mi cuenta</a></li>
+                <li><a href="#cats" data-transition="flip">Anuncios</a></li>
+                <li><a href="#sell" data-transition="slideup">Publicar</a></li>
         </ul>
     </div>
 
