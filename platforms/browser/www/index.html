@@ -1,24 +1,5 @@
 <!DOCTYPE html>
-<!--
-    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
 
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
 
 <head>
@@ -41,50 +22,56 @@
     
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
     <link rel="stylesheet" type="text/css" href="css/sweetalert.css" />
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <script type="text/javascript" src="js/jquery-2.1.1.js"></script>
     <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
-    <title>Mgreen</title>
+    
+    <title>Reciclaje Libre</title>
 </head>
 
 <body>
    <div data-role="page" id="inicio">
 
-  <div data-role="header">
-    <h1>Bienvenido</h1>
+  <div data-role="header" class="toph">
+    <h2 class="htitle" >&nbsp;</h2>
+    <a href="#inicio" data-role="none" class="rheader2 ui-btn-right" data-transition="slidedown" >Inicio</a>
   </div>
 
-  <div data-role="main" class="ui-content">
-   <form id="logForm" data-ajax="true">
-     
-     <label for="user">Correo</label>
-     <input type="text" data-clear-btn="true" name="user" id="user" value="">
+  <div data-role="main" class="ui-content logob">
+  	<div class="logob">
+  	<img class="elm-cent" width="150px" src="img/logob.png" />
+  	</div>
    
-     <input id="logac" type="submit"  class="show-page-loading-msg" data-textonly="false" data-textvisible="false" data-corners="false" value="Entrar">
-   </form>
-   <a href="#register" class="regt" data-transition="flip">¿Aún no estas registrado? Hazlo ahora</a>
   </div>
-  
- 
-
+  <div class="ui-content shadowu">
+ <form id="logForm" data-ajax="true">
+     <input type="text" class="inputg" placeholder="Correo" data-clear-btn="true" name="user" id="user" value="">
+     <br />
+     <input id="logac" type="submit" class="gbutton"  data-role="none" value="Entrar">
+   </form>
+   <a href="#register" class="regt " data-transition="flip">Registrarse</a>
+</div>
   </div>
   <div data-role="page" id="register">
 
-  <div data-role="header">
-    <h1>Registro</h1>
+  <div data-role="header" class="toph">
+    <h2 class="htitle" >Reciclaje <br/>Libre</h2>
+    
+    <a href="#inicio" data-role="none" class="rheader ui-btn-right" data-transition="slidedown" >Inicio</a>
   </div>
 
   <div data-role="main" class="ui-content">
     <form id="regForm" method="post">
      
-     <label for="nombre">Nombre Completo</label>
-     <input type="text" data-clear-btn="true" name="nombre" id="nombre" value="">
-     <label for="comp">Compañia</label>
-     <input type="text" data-clear-btn="true" name="comp" id="comp" value="">
-     <label for="address">Dirección</label>
+     <span class="labreg" for="nombre">Nombre de Contacto</span>
+     <input type="text" class="inputr" data-clear-btn="true" name="nombre" id="nombre" value="">
+     <span class="labreg" for="comp">Compañia</span>
+     <input type="text" class="inputr" data-clear-btn="true" name="comp" id="comp" value="">
+     <span class="labreg" for="address">Dirección</span>
      <textarea class="regarea" name="address"  id="address"></textarea>
-     <label for="state">Estado</label>
-     <select name="state" id="state" data-native-menu="false">
+     <span class="labreg"  for="state">Estado</span>
+     <select data-iconpos="left" name="state"  id="state" data-native-menu="false">
 
 
 <option value="Aguascalientes">Aguascalientes</option>
@@ -121,21 +108,23 @@
 <option value="Zacatecas">Zacatecas</option>
 
         </select>
-     <label for="city">Ciudad</label>
-     <input type="text" data-clear-btn="true" name="city" id="city" value="">
-     <label for="mail">E-mail</label>
-     <input type="text" data-clear-btn="true" name="mail" id="mail" value="">
-     <label for="telefono">Teléfono</label>
-     <input type="text" data-clear-btn="true" name="telefono" id="telefono" value="">
-     <label for="cellp">Celular</label>
-     <input type="text" data-clear-btn="true" name="cellp" id="cellp" value="">
-     <label for="job">¿A qué te dedicas?</label>
-     <select name="job" id="job" data-native-menu="false">
+     <span class="labreg" for="city">Ciudad</span>
+     <input class="inputr" type="text" data-clear-btn="true" name="city" id="city" value="">
+     <span class="labreg" for="pais">País</span>
+     <input class="inputr" type="text" data-clear-btn="true" name="pais" id="pais" value="">
+     <span class="labreg" for="mail">E-mail</span>
+     <input class="inputr" type="text" data-clear-btn="true" name="mail" id="mail" value="">
+     <span class="labreg" for="telefono">Teléfono</span>
+     <input class="inputr" type="text" data-clear-btn="true" name="telefono" id="telefono" value="">
+     <span class="labreg" for="cellp">Celular</span>
+     <input class="inputr" type="text" data-clear-btn="true" name="cellp" id="cellp" value="">
+     <span class="labreg" for="job">¿A qué te dedicas?</span>
+     <select data-iconpos="left"  name="job" id="job" data-native-menu="false">
      	<option value="Fabricante">Fabricante</option>
      	<option value="Reciclante">Reciclante</option>
      	<option value="Revendedor">Revendedor</option>
      </select>
-     <input type="submit" data-corners="false" value="Entrar">
+     <input type="submit" class="gbutton" data-role="none" value="Registrarme">
    </form>
   </div>
   
@@ -155,18 +144,19 @@
    	<h1>Bienvenido</h1>
    	<h1>Reciclaje Libre</h1>
    	<h3 class="cent3">¿Qué deseas hacer?</h3>
+   	<img class="elm-cent" width="200px" src="img/logor.png" />
    </div>
-   <br/><br/>
+   <br/>
    <div class="ui-grid-a">
     <div class="ui-block-a wimg">
-    	<img  src="img/hexagono-regular.png" />
+    	<img  src="img/vender.png" />
     	<br />
     	<div class="arrow_box" >
     		<a href="#sell" data-transition="slideup">Vender</a>
     	</div>
     </div>
     <div class="ui-block-b wimg">
-    	<img   src="img/hexagono-regular.png" />
+    	<img   src="img/comprar.png" />
     	<br />
     	<div class="arrow_box" >
     		<a href="#buy" data-transition="slideup">Comprar</a>
@@ -196,51 +186,65 @@
   	<div class="welcome">
    	<h1>Ahora puedes</h1>
    	<h1>comenzar</h1>
-   	<h3 class="cent3">Elige una categoría para ver</h3>
+   	<h3 class="cent3">Elige un material para ver</h3>
    </div>
    <br/><br/>
    <div class="ui-grid-c">
     <div class="ui-block-a sprods">
-    	<a href="#prod">
-    	<img width="100%" src="img/no_image_startup.png" />
-    	<div class="ui-bar " >Block A</div>
+    	<a href="#prod" class="mats">
+    	<img width="100%" src="img/m1.png" />
+    	<div class="mtitle" >Material 1</div>
     	</a>
     </div>
     <div class="ui-block-b sprods">
-    	<img width="100%" src="img/no_image_startup.png" />
-    	<div class="ui-bar " >Block B</div>
+    	<a href="#prod" class="mats">
+    	<img width="100%" src="img/m2.png" />
+    	<div class="mtitle" >Material 2</div>
+    	</a>
     </div>
     <div class="ui-block-c sprods">
-    	<img width="100%" src="img/no_image_startup.png" />
-    	<div class="ui-bar " >Block c</div>
+    	<a href="#prod" class="mats">
+    	<img width="100%" src="img/m3.png" />
+    	<div class="mtitle" >Material 3</div>
+    	</a>
     </div>
     <div class="ui-block-d sprods">
-    	<img width="100%" src="img/no_image_startup.png" />
-    	<div class="ui-bar " >Block D</div>
+    	<a href="#prod" class="mats">
+    	<img width="100%" src="img/m4.png" />
+    	<div class="mtitle" >Material 4</div>
+    	</a>
     </div>
    </div>
    <br />
    <div class="ui-grid-c">
     <div class="ui-block-a sprods">
-    	<img width="100%" src="img/no_image_startup.png" />
-    	<div class="ui-bar " >Block A</div>
+    	<a href="#prod" class="mats">
+    	<img width="100%" src="img/m5.png" />
+    	<div class="mtitle" >Material 5</div>
+    	</a>
     </div>
     <div class="ui-block-b sprods">
-    	<img width="100%" src="img/no_image_startup.png" />
-    	<div class="ui-bar " >Block B</div>
+    	<a href="#prod" class="mats">
+    	<img width="100%" src="img/m6.png" />
+    	<div class="mtitle" >Material 6</div>
+    	</a>
     </div>
     <div class="ui-block-c sprods">
-    	<img width="100%" src="img/no_image_startup.png" />
-    	<div class="ui-bar " >Block c</div>
+    	<a href="#prod" class="mats">
+    	<img width="100%" src="img/m7.png" />
+    	<div class="mtitle" >Material 7</div>
+    	</a>
     </div>
     <div class="ui-block-d sprods">
-    	<img width="100%" src="img/no_image_startup.png" />
-    	<div class="ui-bar " >Block D</div>
+    	<a href="#prod" class="mats">
+    	<img width="100%" src="img/m8.png" />
+    	<div class="mtitle" >Todos</div>
+    	</a>
     </div>
    </div>
   </div>
   
- <div data-role="panel" data-display="push" data-theme="b" id="catPanel">
+ <div data-role="panel" data-display="overlay" data-theme="b" id="catPanel">
         <ul data-role="listview">
                 <li><a href="#Myaccount" data-transition="slide">Mi cuenta</a></li>
                 <li><a href="#cats" data-transition="flip">Anuncios</a></li>
@@ -306,29 +310,85 @@
    	
      </div>
    <div class="ui-grid-a">
-    <div class="ui-block-a sprods">
+    <div class="ui-block-a sprods ">
+    	<a href="#item"><div class="sellp">
+    	<div class="imgcon">
     	<img width="100%" src="img/no_image_startup.png" />
-    	<div class="ui-bar " >Block A</div>
+    	</div>
+    	<p>Nombre material</p>
+    	<p>Nombre Compañia</p>
+    	<p>País</p>
+    	</div></a>
     </div>
     <div class="ui-block-b sprods">
+    	<div class="sellp">
+    	<div class="imgcon">
     	<img width="100%" src="img/no_image_startup.png" />
-    	<div class="ui-bar " >Block B</div>
+    	</div>
+    	<p>Nombre material</p>
+    	<p>Nombre Compañia</p>
+    	<p>País</p>
+    	</div>
     </div>
    </div>
    <br />
    <div class="ui-grid-a">
     <div class="ui-block-a sprods">
+    	<div class="sellp">
+    	<div class="imgcon">
     	<img width="100%" src="img/no_image_startup.png" />
-    	<div class="ui-bar " >Block A</div>
+    	</div>
+    	<p>Nombre material</p>
+    	<p>Nombre Compañia</p>
+    	<p>País</p>
+    	</div>
     </div>
     <div class="ui-block-b sprods">
+    	<div class="sellp">
+    	<div class="imgcon">
     	<img width="100%" src="img/no_image_startup.png" />
-    	<div class="ui-bar " >Block B</div>
+    	</div>
+    	<p>Nombre material</p>
+    	<p>Nombre Compañia</p>
+    	<p>País</p>
+    	</div>
     </div>
    </div>
   </div>
   
- <div data-role="panel" data-display="push" data-theme="b" id="prodPanel">
+ <div data-role="panel" data-display="overlay" data-theme="b" id="prodPanel">
+        <ul data-role="listview">
+                <li><a href="#Myaccount" data-transition="slide">Mi cuenta</a></li>
+                <li><a href="#cats" data-transition="flip">Anuncios</a></li>
+                <li><a href="#sell" data-transition="slideup">Publicar</a></li>
+        </ul>
+    </div>
+
+  </div>
+  
+  <div data-role="page" id="item">
+  <div data-role="header" class="toph">
+    <h2 class="htitle" >Reciclaje <br/>Libre</h2>
+    <a href="#itemPanel" class="menuicon ui-nodisc-icon ui-nosvg ui-alt-icon "  data-icon="bars" data-iconpos="notext" ></a>
+    <a href="#land" data-role="none" class="start" data-transition="slidedown" >Inicio</a>
+  </div>
+  
+  <div data-role="main" class="ui-content">
+  	<h1>Regresar</h1>
+  </div>
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="img/no_image_startup.png" /></div>
+      <div class="swiper-slide"><img src="img/no_image_startup.png" /></div>
+      <div class="swiper-slide"><img src="img/no_image_startup.png" /></div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+    <!-- Add Arrows -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+ <div data-role="panel" data-display="overlay" data-theme="b" id="itemPanel">
         <ul data-role="listview">
                 <li><a href="#Myaccount" data-transition="slide">Mi cuenta</a></li>
                 <li><a href="#cats" data-transition="flip">Anuncios</a></li>
@@ -346,24 +406,25 @@
     <a href="#land" data-role="none" class="start" data-transition="slidedown" >Inicio</a>
   </div>
   <div data-role="main" class="ui-content">
-   <form id="regForm" method="post">
+   <form id="prodForm" method="post">
      <div class="ui-grid-a">
      	<div class="ui-block-a gray">
      		<div class="choosei">
-     		<img class="imgup" src="img/no_image_startup.png" alt="your image" />
+     		<img class="imgup" src="" alt="" />
      		<a class="ui-btn ui-shadow ui-corner-all ui-icon-plus ui-btn-icon-notext imch">plus</a>
      		<input type="file" class="pic" data-role="none" name="pic1" />
      		</div>
      	</div>
      	<div class="ui-block-b gray">
      		<div class="choosei">
+     		<img class="imgup" src="" alt="" />
      		<a class="ui-btn ui-shadow ui-corner-all ui-icon-plus ui-btn-icon-notext imch">plus</a>
      		<input type="file" class="pic" data-role="none" name="pic2" />
      		</div>
      	</div>
      </div>
      <br/>
-     <label for="mate">Material</label>
+     <label class="prodl" for="mate">Material</label>
      <select name="mate" id="mate" data-native-menu="false">
      	<option value="1">1</option>
      	<option value="2">2</option>
@@ -372,62 +433,64 @@
      	<option value="5">5</option>
      	<option value="6">6</option>
      	<option value="7">7</option>
-     </select>
-     <label for="origin">Origen</label>
+     </select><br />
+     <label class="prodl" for="origin">Origen</label>
      <select name="origin" id="origin" data-native-menu="false">
      	<option value="Post Industrial">Post Industrial</option>
      	<option value="Post Consumo">Post Consumo</option>
-     </select>
-     <label for="origin">Presentación</label>
-     <select name="origin" id="origin" data-native-menu="false">
+     </select><br />
+     <label class="prodl" for="pres">Presentación</label>
+     <select name="pres" id="pres" data-native-menu="false">
      	<option value="Pieza">Pieza</option>
      	<option value="Purga">Purga</option>
      	<option value="Barredura">Barredura</option>
      	<option value="Molido">Molido</option>
      	<option value="Otro">Otro</option>
-     </select>
-     <label for="empaq">Empaque</label>
+     </select><br />
+     <label class="prodl" for="empaq">Empaque</label>
      <select name="empaq" id="empaq" data-native-menu="false">
      	<option value="Super saco">Super saco</option>
      	<option value="Gaylor">Gaylor</option>
      	<option value="Costal">Costal</option>
      	<option value="Paca">Paca</option>
-     </select>
-     <label for="color">Color</label>
+     </select><br />
+     <label class="prodl" for="color">Color</label>
      <select name="color" id="color" data-native-menu="false">
      	<option value="Cristal natural">Cristal natural</option>
      	<option value="Cristal transparente">Cristal transparente</option>
      	<option value="Verde">Verde</option>
      	<option value="Azul">Azul</option>
      	<option value="Otro">Otro</option>
-     </select>
-     <label for="esps">Especificación</label>
-     <textarea class="rega" name="esps"  id="esps"></textarea>
-     <label for="price">Precio</label>
-     <input type="number" data-clear-btn="true" name="price" id="price" value="">
-     <label for="cant">Cantidad</label>
-     <input type="number" data-clear-btn="true" name="cant" id="cant" pattern="[0-9]*" value="">
-     <label for="unit">Unidad</label>
+     </select><br />
+     <label class="prodl2" for="esps">Especificación</label>
+     <textarea class="regarea" name="esps"  id="esps"></textarea><br />
+     <label class="prodl" for="price">Precio</label>
+     <input type="number" class="inputp" class="inputp" data-clear-btn="true" step="0.01" min="0" name="price" id="price" value=""><br />
+     <label class="prodl" for="cant">Cantidad</label>
+     <input type="number" class="inputp" data-clear-btn="true" name="cant" id="cant" pattern="[0-9]*" value=""><br />
+     <label class="prodl" for="unit">Unidad</label>
      <select name="unit" id="unit" data-native-menu="false">
      	<option value="Tonelada">Tonelada</option>
      	<option value="Kilogramo">Kilogramo</option>
-     </select>
-     <label for="recu">Recurrencia</label>
+     </select><br />
+     <label class="prodl" for="recu">Recurrencia</label>
      <select name="recu" id="recu" data-native-menu="false">
      	<option value="Unico Lote">Unico Lote</option>
      	<option value="Semanal">Semanal</option>
      	<option value="Cada més">Cada més</option>
-     </select>
-     <label for="ubic">Ubicación del material</label>
-     <input type="text" data-clear-btn="true" name="ubic" id="ubic" value="">
-     <label for="info">Información general</label>
-     <textarea class="rega" name="info"  id="info"></textarea>
+     </select><br />
+     <label class="prodl2" for="ubic">Ubicación del material</label>
+     <input type="text" class="inputp"  data-clear-btn="true" name="ubic" id="ubic" value=""><br />
+     <label class="prodl2"  for="info">Información general</label>
+     <textarea class="regarea" name="info"  id="info"></textarea>
+     <br/><br/>
+     <input  type="submit"   data-role="none" class="gbutton" value="FINALIZAR">
     </form>
    
    
   </div>
   
- <div data-role="panel" data-display="push" data-theme="b" id="sellPanel">
+ <div data-role="panel" data-display="overlay" data-theme="b" id="sellPanel">
         <ul data-role="listview">
                 <li><a href="#Myaccount" data-transition="slide">Mi cuenta</a></li>
                 <li><a href="#cats" data-transition="flip">Anuncios</a></li>
@@ -436,7 +499,7 @@
     </div>
 
   </div>
-    
+    <script type="text/javascript" src="js/swiper.min.js"></script>
     <script type="text/javascript" src="js/sweetalert.min.js"></script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
