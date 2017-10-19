@@ -175,6 +175,12 @@ box-shadow: 0px -5px 5px 0px rgba(189,189,189,1);
 .swiper-slide img{
 	width: 100% !important;
 }
+.sprods a {
+	text-decoration:none;
+}
+.sprods a > .sellp p{
+	text-decoration:none;
+}
 .prodl2{
 	
 	margin-top:6px !important;
@@ -394,14 +400,32 @@ box-shadow: 0px -5px 5px 0px rgba(189,189,189,1);
 .sellp{
 	border: 1px solid #ccc;
 }
+.caratb{
+	z-index:10;
+	background: #f9f9f9 !important;
+	border: none !important;
+}
+.caratb:after{
+	background-color: transparent !important;
+}
+.backb{
+	font-family:"ralem";
+	position: absolute;
+	left:0;
+	right: 0;
+	top: 20px;
+}
+.ui-content{
+	position: relative;
+}
 .sellp p{
 	font-family:"rale";
 	white-space: nowrap;
-   overflow: hidden;
-   text-overflow: ellipsis;
+    overflow: hidden;
+    text-overflow: ellipsis;
     max-width: 120px;
 	margin:  2px 0 2px 12px;
-	
+	color:#7c7c7c !important;
 }
 .elm-cent{
 	display:table;
@@ -427,6 +451,8 @@ box-shadow: 0px -5px 5px 0px rgba(189,189,189,1);
 	box-shadow: 0 !important
 }
 .imgcon{
+	min-height: 170px;
+	max-height:170px;
 	-webkit-clip-path: polygon(100% 0, 100% 100%, 14% 100%, 0 83%, 0 0);
 clip-path: polygon(100% 0, 100% 100%, 14% 100%, 0 83%, 0 0);
 }
@@ -457,6 +483,10 @@ clip-path: polygon(100% 0, 100% 100%, 14% 100%, 0 83%, 0 0);
     -webkit-animation:fade 3000ms infinite;
 }
 @media(min-width:768px){
+	.imgcon{
+	min-height: 370px;
+	max-height:370px;
+	}
 	.gray{
 	height: 370px;
 }

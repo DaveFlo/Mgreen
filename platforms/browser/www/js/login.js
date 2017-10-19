@@ -193,7 +193,83 @@ $(document).ready(function(){
         }
    });
    
-   var swiper = new Swiper('.swiper-container', {
+   
+	
+ $(".mats").click(function(e){
+ 	e.preventDefault();
+ 	var mat = $(this).data("material");
+ 	$.ajax({
+	url: "http://www.icone-solutions.com/mgreen/sqlOP.php",
+	type: "POST",
+	data: {mat:mat},
+	success: function(data){
+		var jsonObj = jQuery.parseJSON(data);
+		var pdi = jsonObj[0].split("+");
+		var name = jsonObj[1].split("+");
+		var price = jsonObj[2].split("+");
+		var esps = jsonObj[3].split("+");
+		var color = jsonObj[4].split("+");
+		var images = jsonObj[5].split("+");
+		console.log(images);
+		var b = "a"
+		for(var i =0; i<pdi.length;i=i+2){
+			var temp = images[i].split(",");
+			
+			if(images[i+1]!=undefined){
+				var temp2 = images[i+1].split(",");
+			$(".prodscon").append('<div class="ui-grid-a"><div class="ui-block-a sprods '+i+'"><a class="items" href="#item" data-transition="slide">'+
+    	      '<div class="sellp">'+
+    	      '<div class="imgcon">'+
+    	      '<img width="100%" src="http://icone-solutions.com/mgreen/products/img/'+temp[0]+'" />'+
+    	      '</div>'+
+    	      '<p>Nombre material</p>'+
+    	      '<p>Nombre Compañia</p>'+
+    	      '<p>País</p>'+
+    	      '</div>'+
+    	      '</a></div>'+
+    	      '<div class="ui-block-b sprods '+i+'"><a class="items" href="#item" data-transition="slide">'+
+    	      '<div class="sellp">'+
+    	      '<div class="imgcon">'+
+    	      '<img width="100%" src="http://icone-solutions.com/mgreen/products/img/'+temp2[0]+'" />'+
+    	      '</div>'+
+    	      '<p>Nombre material</p>'+
+    	      '<p>Nombre Compañia</p>'+
+    	      '<p>País</p>'+
+    	      '</div>'+
+    	      '</a></div>'+
+    	      '</div><br/>');
+    	     }else{
+    	     	
+			$(".prodscon").append('<div class="ui-grid-a"><div class="ui-block-a sprods '+i+'"><a class="items" data-transition="slide">'+
+    	      '<div class="sellp">'+
+    	      '<div class="imgcon">'+
+    	      '<img width="100%" src="http://icone-solutions.com/mgreen/products/img/'+temp[0]+'" />'+
+    	      '</div>'+
+    	      '<p>Nombre material</p>'+
+    	      '<p>Nombre Compañia</p>'+
+    	      '<p>País</p>'+
+    	      '</div>'+
+    	      '</a></div>'+
+    	      
+    	      '</div>');
+    	     }
+	      console.log(name[i]);
+	   }
+	   $.mobile.navigate( "#prod", {transition:"flip" });
+    }
+  });
+ });
+
+$(".prodscon").on('click', 'div > div > .items', function(){ 
+	
+ 	$.mobile.navigate( "#item", {transition:"slide" });
+ });
+
+});
+
+$(document).on('pageshow', '#item', function(){ 
+    if($('.swiper-pagination .swiper-pagination-progressbar').length == 0) {
+       var swiper = new Swiper('.swiper-container', {
       pagination: {
         el: '.swiper-pagination',
         type: 'progressbar',
@@ -203,9 +279,5 @@ $(document).ready(function(){
         prevEl: '.swiper-button-prev',
       },
     });
-	
-
-
-
-
+    }
 });

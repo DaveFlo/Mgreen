@@ -191,7 +191,7 @@
    <br/><br/>
    <div class="ui-grid-c">
     <div class="ui-block-a sprods">
-    	<a href="#prod" class="mats">
+    	<a href="#prod" class="mats" data-material="1">
     	<img width="100%" src="img/m1.png" />
     	<div class="mtitle" >Material 1</div>
     	</a>
@@ -309,50 +309,9 @@
    	 <h1>Categoría</h1>
    	
      </div>
-   <div class="ui-grid-a">
-    <div class="ui-block-a sprods ">
-    	<a href="#item"><div class="sellp">
-    	<div class="imgcon">
-    	<img width="100%" src="img/no_image_startup.png" />
-    	</div>
-    	<p>Nombre material</p>
-    	<p>Nombre Compañia</p>
-    	<p>País</p>
-    	</div></a>
-    </div>
-    <div class="ui-block-b sprods">
-    	<div class="sellp">
-    	<div class="imgcon">
-    	<img width="100%" src="img/no_image_startup.png" />
-    	</div>
-    	<p>Nombre material</p>
-    	<p>Nombre Compañia</p>
-    	<p>País</p>
-    	</div>
-    </div>
-   </div>
-   <br />
-   <div class="ui-grid-a">
-    <div class="ui-block-a sprods">
-    	<div class="sellp">
-    	<div class="imgcon">
-    	<img width="100%" src="img/no_image_startup.png" />
-    	</div>
-    	<p>Nombre material</p>
-    	<p>Nombre Compañia</p>
-    	<p>País</p>
-    	</div>
-    </div>
-    <div class="ui-block-b sprods">
-    	<div class="sellp">
-    	<div class="imgcon">
-    	<img width="100%" src="img/no_image_startup.png" />
-    	</div>
-    	<p>Nombre material</p>
-    	<p>Nombre Compañia</p>
-    	<p>País</p>
-    	</div>
-    </div>
+     <div class="prodscon">
+   
+   
    </div>
   </div>
   
@@ -374,19 +333,22 @@
   </div>
   
   <div data-role="main" class="ui-content">
-  	<h1>Regresar</h1>
+  	<a  data-rel="back" class="caratb ui-btn  ui-nosvg ui-alt-icon ui-icon-carat-l ui-btn-icon-notext ui-btn-inline"></a>
+  	<h1 class="backb">Nombre del material</h1>
   </div>
   <div class="swiper-container">
     <div class="swiper-wrapper">
       <div class="swiper-slide"><img src="img/no_image_startup.png" /></div>
       <div class="swiper-slide"><img src="img/no_image_startup.png" /></div>
-      <div class="swiper-slide"><img src="img/no_image_startup.png" /></div>
     </div>
-    <!-- Add Pagination -->
+
     <div class="swiper-pagination"></div>
-    <!-- Add Arrows -->
+
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>
+  </div>
+  <div class="ui-content">
+  	<h1>Regresar</h1>
   </div>
  <div data-role="panel" data-display="overlay" data-theme="b" id="itemPanel">
         <ul data-role="listview">
@@ -455,7 +417,8 @@
      	<option value="Paca">Paca</option>
      </select><br />
      <label class="prodl" for="color">Color</label>
-     <select name="color" id="color" data-native-menu="false">
+     <select name="color" id="color" multiple="multiple" data-native-menu="false">
+     	<option>Color</option>
      	<option value="Cristal natural">Cristal natural</option>
      	<option value="Cristal transparente">Cristal transparente</option>
      	<option value="Verde">Verde</option>
