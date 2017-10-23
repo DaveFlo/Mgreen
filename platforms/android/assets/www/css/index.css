@@ -174,12 +174,42 @@ box-shadow: 0px -5px 5px 0px rgba(189,189,189,1);
 }
 .swiper-slide img{
 	width: 100% !important;
+	max-height: 320px
 }
 .sprods a {
 	text-decoration:none;
 }
 .sprods a > .sellp p{
 	text-decoration:none;
+}
+.mainM{
+	background: #f9f9f9;
+}
+.mainM h1{
+	font-size: 24px;
+	font-family: "nexa";
+	text-align: left;
+	color: #000 !important;
+	text-shadow: none !important;
+}
+.ui-listview li a{
+	font-size: 12px !important;
+	font-family: "rale";
+	border: none !important;
+	background: #f9f9f9 !important;
+	color: #000 !important;
+	text-shadow: none !important;
+}
+.ui-listview li a:focus{
+	box-shadow:none !important;
+}
+.usern{
+	font-family: "ralem";
+	color: #000 !important;
+	text-shadow: none !important;
+}
+.divider{
+	font-family: "rale";
 }
 .prodl2{
 	
@@ -408,10 +438,34 @@ box-shadow: 0px -5px 5px 0px rgba(189,189,189,1);
 .caratb:after{
 	background-color: transparent !important;
 }
+.description{
+	font-family: "rale";
+	border-left:10px solid #f89600;
+	padding-left: 6px;
+}
+.contact{
+	font-family: "rale";
+	border-left:10px solid #00b100;
+	padding-left: 6px;
+}
+.desc1 p,.desc2 p{
+	color: #000;
+	font-weight: 700;
+}
+#pricep{
+	font-weight: 700;
+	color: #f89600;
+}
+.desc1 h2{
+	width: 100%;
+	word-wrap:break-word;
+	font-family:"ralem";
+}
 .backb{
 	font-family:"ralem";
 	position: absolute;
 	left:0;
+	font-size: 22px;
 	right: 0;
 	top: 20px;
 }
@@ -482,7 +536,11 @@ clip-path: polygon(100% 0, 100% 100%, 14% 100%, 0 83%, 0 0);
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
+
 @media(min-width:768px){
+	.swiper-slide img{	
+		max-height: 600px
+   }
 	.imgcon{
 	min-height: 370px;
 	max-height:370px;

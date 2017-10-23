@@ -197,12 +197,14 @@ $(document).ready(function(){
 	
  $(".mats").click(function(e){
  	e.preventDefault();
+ 	$(".prodscon").empty();
  	var mat = $(this).data("material");
  	$.ajax({
 	url: "http://www.icone-solutions.com/mgreen/sqlOP.php",
 	type: "POST",
 	data: {mat:mat},
 	success: function(data){
+		console.log(data);
 		var jsonObj = jQuery.parseJSON(data);
 		var pdi = jsonObj[0].split("+");
 		var name = jsonObj[1].split("+");
@@ -210,14 +212,15 @@ $(document).ready(function(){
 		var esps = jsonObj[3].split("+");
 		var color = jsonObj[4].split("+");
 		var images = jsonObj[5].split("+");
-		console.log(images);
+		
 		var b = "a"
+		if(pdi[0]!=""){
 		for(var i =0; i<pdi.length;i=i+2){
 			var temp = images[i].split(",");
 			
 			if(images[i+1]!=undefined){
 				var temp2 = images[i+1].split(",");
-			$(".prodscon").append('<div class="ui-grid-a"><div class="ui-block-a sprods '+i+'"><a class="items" href="#item" data-transition="slide">'+
+			$(".prodscon").append('<div class="ui-grid-a"><div class="ui-block-a sprods "><a class="items" data-pid="'+pdi[i]+'" >'+
     	      '<div class="sellp">'+
     	      '<div class="imgcon">'+
     	      '<img width="100%" src="http://icone-solutions.com/mgreen/products/img/'+temp[0]+'" />'+
@@ -227,7 +230,7 @@ $(document).ready(function(){
     	      '<p>País</p>'+
     	      '</div>'+
     	      '</a></div>'+
-    	      '<div class="ui-block-b sprods '+i+'"><a class="items" href="#item" data-transition="slide">'+
+    	      '<div class="ui-block-b sprods "><a class="items" data-pid="'+pdi[i+1]+'">'+
     	      '<div class="sellp">'+
     	      '<div class="imgcon">'+
     	      '<img width="100%" src="http://icone-solutions.com/mgreen/products/img/'+temp2[0]+'" />'+
@@ -240,7 +243,7 @@ $(document).ready(function(){
     	      '</div><br/>');
     	     }else{
     	     	
-			$(".prodscon").append('<div class="ui-grid-a"><div class="ui-block-a sprods '+i+'"><a class="items" data-transition="slide">'+
+			$(".prodscon").append('<div class="ui-grid-a"><div class="ui-block-a sprods "><a class="items" data-pid="'+pdi[i]+'" >'+
     	      '<div class="sellp">'+
     	      '<div class="imgcon">'+
     	      '<img width="100%" src="http://icone-solutions.com/mgreen/products/img/'+temp[0]+'" />'+
@@ -253,16 +256,57 @@ $(document).ready(function(){
     	      
     	      '</div>');
     	     }
-	      console.log(name[i]);
+	      
 	   }
+	 }else{
+	 	$(".prodscon").append("<h1>No hay productos en esta categoría</h1>");
+	 }
 	   $.mobile.navigate( "#prod", {transition:"flip" });
     }
   });
  });
-
-$(".prodscon").on('click', 'div > div > .items', function(){ 
+$(".close").click(function(){
+   	       localStorage.clear();
+   	       $.mobile.navigate( "#inicio", {transition:"pop", info: "info about the #foo hash" });
+   });
+$(".usern").text(localStorage.getItem("user"));
+$(".prodscon").on('click', 'div > div > .items', function(e){ 
 	
- 	$.mobile.navigate( "#item", {transition:"slide" });
+	var pid = $(this).data("pid");
+ 	$(".swiper-wrapper").empty();
+ 	$.ajax({
+	url: "http://www.icone-solutions.com/mgreen/sqlOP.php",
+	type: "POST",
+	data: {pid:pid},
+	success: function(data){
+		console.log(data);
+		var jsonObj = jQuery.parseJSON(data);
+		var images = jsonObj[11].split(",");
+		console.log(jsonObj);
+		$(".backb").text(jsonObj[1]);
+		$("#namep").text(jsonObj[1]);
+		$("#orip").text(jsonObj[2]);
+		$("#presp").text(jsonObj[3]);
+		$("#empaqp").text(jsonObj[4]);
+		$("#unitp").text(jsonObj[5]);
+		$("#recp").text(jsonObj[6]);
+		$("#pricep").text("$"+jsonObj[7]);
+		$("#cantp").text(jsonObj[8]+" Disponibles");
+		$("#descr").text(jsonObj[9]);
+		
+		$("#conc").text(jsonObj[12]);
+		$("#namec").text(jsonObj[13]);
+		$("#dirc").text(jsonObj[14]);
+		$("#cityc").text(jsonObj[15]);
+		$("#statec").text(jsonObj[16]);
+		$("#counc").text(jsonObj[17]);
+		$("#mailc").text(jsonObj[18]);
+		$("#phonec").text(jsonObj[19]);
+		$(".swiper-wrapper").append('<div id="image1" class="swiper-slide"><img  src="http://icone-solutions.com/mgreen/products/img/'+images[0]+'" /></div>');
+		$(".swiper-wrapper").append('<div id="image1" class="swiper-slide"><img  src="http://icone-solutions.com/mgreen/products/img/'+images[1]+'" /></div>');
+		$.mobile.navigate( "#item", {transition:"slide" });
+	}
+	});
  });
 
 });
