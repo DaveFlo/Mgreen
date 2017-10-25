@@ -71,43 +71,8 @@
      <span class="labreg" for="address">Dirección</span>
      <textarea class="regarea" name="address"  id="address"></textarea>
      <span class="labreg"  for="state">Estado</span>
-     <select data-iconpos="left" name="state"  id="state" data-native-menu="false">
-
-
-<option value="Aguascalientes">Aguascalientes</option>
-<option value="Baja California">Baja California</option>
-<option value="Baja California Sur">Baja California Sur</option>
-<option value="Campeche">Campeche</option>
-<option value="Coahuila de Zaragoza">Coahuila de Zaragoza</option>
-<option value="Colima">Colima</option>
-<option value="Chiapas">Chiapas</option>
-<option value="Chihuahua">Chihuahua</option>
-<option value="Distrito Federal">Distrito Federal</option>
-<option value="Durango">Durango</option>
-<option value="Guanajuato">Guanajuato</option>
-<option value="Guerrero">Guerrero</option>
-<option value="Hidalgo">Hidalgo</option>
-<option value="Jalisco">Jalisco</option>
-<option value="México">México</option>
-<option value="Michoacán de Ocampo">Michoacán de Ocampo</option>
-<option value="Morelos">Morelos</option>
-<option value="Nayarit">Nayarit</option>
-<option value="Nuevo León">Nuevo León</option>
-<option value="Oaxaca">Oaxaca</option>
-<option value="Puebla">Puebla</option>
-<option value="Querétaro">Querétaro</option>
-<option value="Quintana Roo">Quintana Roo</option>
-<option value="San Luis Potosí">San Luis Potosí</option>
-<option value="Sinaloa">Sinaloa</option>
-<option value="Sonora">Sonora</option>
-<option value="Tabasco">Tabasco</option>
-<option value="Tamaulipas">Tamaulipas</option>
-<option value="Tlaxcala">Tlaxcala</option>
-<option value="Veracruz de Ignacio de la Llave">Veracruz de Ignacio de la Llave</option>
-<option value="Yucatán">Yucatán</option>
-<option value="Zacatecas">Zacatecas</option>
-
-        </select>
+     <input type="text" class="inputr" data-clear-btn="true" name="state"  id="state"  value="">
+     
      <span class="labreg" for="city">Ciudad</span>
      <input class="inputr" type="text" data-clear-btn="true" name="city" id="city" value="">
      <span class="labreg" for="pais">País</span>
@@ -169,6 +134,63 @@
  	    <h1>RECICLAJE LIBRE</h1>
  	    <p class="usern"></p>
         <ul data-role="listview">
+                <li data-icon="false"><a class="account" href="#Myaccount" data-transition="slide">Mi cuenta</a></li>
+                <li data-icon="false"><a href="#cats" data-transition="flip">Anuncios</a></li>
+                <li data-icon="false"><a href="#sell" data-transition="slideup">Publicar</a></li>
+                <li data-icon="false"><a class="close">Cerrar Sesión</a></li>
+        </ul>
+        <ul data-role="listview">
+                <li class="divider" data-icon="false">Ayuda</li>
+                <li data-icon="false"><a href="#cats" data-transition="flip">Información General</a></li>
+                <li data-icon="false"><a href="#sell" data-transition="slideup">Lineamientos al publicar</a></li>
+        </ul>
+    </div>
+
+  </div>
+<div data-role="page" id="Myaccount">
+
+  <div data-role="header" class="toph">
+    <h2 class="htitle" >Reciclaje <br/>Libre</h2>
+    <a href="#accPanel" class="menuicon ui-nodisc-icon ui-nosvg ui-alt-icon "  data-icon="bars" data-iconpos="notext" ></a>
+    <a href="#land" data-role="none" class="start" data-transition="slidedown" >Inicio</a>
+  </div>
+  <div data-role="main" class="ui-content">
+   <h1 class="accT">Mi cuenta</h1><br/>
+   <a id="edit" class="ui-btn ui-shadow ui-corner-all ui-icon-edit ui-btn-icon-notext ui-btn-b ui-btn-inline">edit</a>
+   <form id="accForm" method="post">
+   	 <span class="labreg" for="nombre">Nombre de Contacto</span>
+     <input type="text" readonly="" class="inputr"  name="nombre" id="nombrea" value="">
+     <span class="labreg" for="comp">Compañia</span>
+     <input type="text" readonly="" class="inputr"  name="comp" id="compa" value="">
+     <span class="labreg" for="address">Dirección</span>
+     <textarea readonly=""  class="regarea" name="address"  id="addressa"></textarea>
+     <span class="labreg"  for="state">Estado</span>
+     <input type="text" readonly="" class="inputr"  name="state"  id="statea"  value="">
+     
+     <span class="labreg" for="city">Ciudad</span>
+     <input class="inputr" readonly="" type="text"  name="city" id="citya" value="">
+     <span class="labreg" for="pais">País</span>
+     <input class="inputr" readonly="" type="text"  name="pais" id="paisa" value="">
+     <span class="labreg" for="telefono">Teléfono</span>
+     <input class="inputr" readonly="" type="text"  name="telefono" id="telefonoa" value="">
+     <span class="labreg" for="cellp">Celular</span>
+     <input class="inputr" readonly="" type="text"  name="cellp" id="cellpa" value="">
+     <span class="labreg" for="job">¿A qué te dedicas?</span>
+     <select data-iconpos="left"  name="job" id="joba" data-native-menu="false">
+     	<option value="Fabricante">Fabricante</option>
+     	<option value="Reciclante">Reciclante</option>
+     	<option value="Revendedor">Revendedor</option>
+     </select>
+     <input type="submit" id="saveD" class="gbutton" data-role="none" value="Guardar">
+   </form>
+   <br/>
+   
+  </div>
+  
+ <div class="mainM" data-role="panel" data-display="overlay" data-theme="b" id="accPanel">
+ 	    <h1>RECICLAJE LIBRE</h1>
+ 	    <p class="usern"></p>
+        <ul data-role="listview">
                 <li data-icon="false"><a href="#Myaccount" data-transition="slide">Mi cuenta</a></li>
                 <li data-icon="false"><a href="#cats" data-transition="flip">Anuncios</a></li>
                 <li data-icon="false"><a href="#sell" data-transition="slideup">Publicar</a></li>
@@ -182,7 +204,6 @@
     </div>
 
   </div>
-
 <div data-role="page" id="cats">
   <div data-role="header" class="toph">
     <h2 class="htitle" >Reciclaje <br/>Libre</h2>
@@ -199,48 +220,48 @@
    <br/><br/>
    <div class="ui-grid-c">
     <div class="ui-block-a sprods">
-    	<a href="#prod" class="mats" data-material="1">
+    	<a href="#prod" class="mats" data-material="PET">
     	<img width="100%" src="img/m1.png" />
-    	<div class="mtitle" >Material 1</div>
+    	<div class="mtitle" >PET</div>
     	</a>
     </div>
     <div class="ui-block-b sprods">
-    	<a href="#prod" class="mats" data-material="2">
+    	<a href="#prod" class="mats" data-material="PEAD">
     	<img width="100%" src="img/m2.png" />
-    	<div class="mtitle" >Material 2</div>
+    	<div class="mtitle" >PEAD</div>
     	</a>
     </div>
     <div class="ui-block-c sprods">
-    	<a href="#prod" class="mats" data-material="3">
+    	<a href="#prod" class="mats" data-material="PVC">
     	<img width="100%" src="img/m3.png" />
-    	<div class="mtitle" >Material 3</div>
+    	<div class="mtitle" >PVC</div>
     	</a>
     </div>
     <div class="ui-block-d sprods">
-    	<a href="#prod" class="mats" data-material="4">
+    	<a href="#prod" class="mats" data-material="PEBD">
     	<img width="100%" src="img/m4.png" />
-    	<div class="mtitle" >Material 4</div>
+    	<div class="mtitle" >PEBD</div>
     	</a>
     </div>
    </div>
    <br />
    <div class="ui-grid-c">
     <div class="ui-block-a sprods">
-    	<a href="#prod" class="mats" data-material="5">
+    	<a href="#prod" class="mats" data-material="PP">
     	<img width="100%" src="img/m5.png" />
-    	<div class="mtitle" >Material 5</div>
+    	<div class="mtitle" >PP</div>
     	</a>
     </div>
     <div class="ui-block-b sprods">
-    	<a href="#prod" class="mats" data-material="6">
+    	<a href="#prod" class="mats" data-material="PS">
     	<img width="100%" src="img/m6.png" />
-    	<div class="mtitle" >Material 6</div>
+    	<div class="mtitle" >PS</div>
     	</a>
     </div>
     <div class="ui-block-c sprods">
-    	<a href="#prod" class="mats" data-material="7">
+    	<a href="#prod" class="mats" data-material="Otros">
     	<img width="100%" src="img/m7.png" />
-    	<div class="mtitle" >Material 7</div>
+    	<div class="mtitle" >Otros</div>
     	</a>
     </div>
     <div class="ui-block-d sprods">
@@ -278,21 +299,24 @@
   </div>
   
   <div data-role="main" class="ui-content">
+  	
+  	<form id="filterF" method="post">
   	<div class="filter">
   		
-    <select name="filters" id="filters" multiple="multiple" data-native-menu="false">
+    <select name="mvalue[]" id="filters" multiple="multiple" data-native-menu="false">
         <option>Buscar por</option>
         
         <optgroup label="Origen">
             <option value="Post Industrial">Post Industrial</option>
      	    <option value="Post Consumo">Post Consumo</option>
+     	    <option value="Otro">Otro</option>
         </optgroup>
         <optgroup label="Presentación">
             <option value="Pieza">Pieza</option>
      	    <option value="Purga">Purga</option>
      	    <option value="Barredura">Barredura</option>
      	    <option value="Molido">Molido</option>
-     	    <option value="Otro">Otro</option>
+     	    <option value="Pelet">Pelet</option>
         </optgroup>
         <optgroup label="Empaque">
             <option value="Super saco">Super saco</option>
@@ -301,8 +325,7 @@
      	    <option value="Paca">Paca</option>
         </optgroup>
         <optgroup label="Color">
-            <option value="Cristal natural">Cristal natural</option>
-     	    <option value="Cristal transparente">Cristal transparente</option>
+            <option value="Cristal/Natural/Transparente">Cristal/Natural/Transparente</option>
      	    <option value="Verde">Verde</option>
      	    <option value="Azul">Azul</option>
      	    <option value="Otro">Otro</option>
@@ -322,16 +345,21 @@
         </optgroup>
     </select>
     <br/>
-   	 <h1>Categoría</h1>
+    <input type="hidden" id="category" name="category" />
+    <input type="submit" class="searchb"  value="Buscar" />
+    </form>
+    <br />
+   	 <h1 id="catname">Categoría</h1>
    	
      </div>
+     
      <div class="prodscon">
    
    
      </div>
   </div>
   
- <div data-role="panel" data-display="overlay" data-theme="b" id="prodPanel">
+ <div class="mainM" data-role="panel" data-display="overlay" data-theme="b" id="prodPanel">
         <h1>RECICLAJE LIBRE</h1>
  	    <p class="usern"></p>
         <ul data-role="listview">
@@ -386,6 +414,7 @@
   		<p id="cantp"></p>
   		<p >Precio</p>
   		<p id="pricep"></p>
+  		<p >Colores</p>
   		<p id="colorp"></p>
   			</div>
   		</div>
@@ -461,18 +490,19 @@
      <br/>
      <label class="prodl" for="mate">Material</label>
      <select name="mate" id="mate" data-native-menu="false">
-     	<option value="1">1</option>
-     	<option value="2">2</option>
-     	<option value="3">3</option>
-     	<option value="4">4</option>
-     	<option value="5">5</option>
-     	<option value="6">6</option>
-     	<option value="7">7</option>
+     	<option value="PET">PET</option>
+     	<option value="PEAD">PEAD</option>
+     	<option value="PVC">PVC</option>
+     	<option value="PEBD">PEBD</option>
+     	<option value="PP">PP</option>
+     	<option value="PS">PS</option>
+     	<option value="Otros">Otros</option>
      </select><br />
      <label class="prodl" for="origin">Origen</label>
      <select name="origin" id="origin" data-native-menu="false">
      	<option value="Post Industrial">Post Industrial</option>
      	<option value="Post Consumo">Post Consumo</option>
+     	<option value="Otro">Otro</option>
      </select><br />
      <label class="prodl" for="pres">Presentación</label>
      <select name="pres" id="pres" data-native-menu="false">
@@ -480,7 +510,7 @@
      	<option value="Purga">Purga</option>
      	<option value="Barredura">Barredura</option>
      	<option value="Molido">Molido</option>
-     	<option value="Otro">Otro</option>
+     	<option value="Pelet">Pelet</option>
      </select><br />
      <label class="prodl" for="empaq">Empaque</label>
      <select name="empaq" id="empaq" data-native-menu="false">
@@ -490,14 +520,15 @@
      	<option value="Paca">Paca</option>
      </select><br />
      <label class="prodl" for="color">Color</label>
-     <select name="color" id="color" multiple="multiple" data-native-menu="false">
+     <select name="color" id="color" data-native-menu="false">
      	<option>Color</option>
-     	<option value="Cristal natural">Cristal natural</option>
-     	<option value="Cristal transparente">Cristal transparente</option>
+     	<option value="Cristal/Natural/Transparente">Cristal/Natural/Transparente</option>
      	<option value="Verde">Verde</option>
      	<option value="Azul">Azul</option>
      	<option value="Otro">Otro</option>
      </select><br />
+    
+     
      <label class="prodl2" for="esps">Descripción</label>
      <textarea class="regarea" name="esps"  id="esps"></textarea><br />
      <label class="prodl" for="price">Precio</label>
@@ -524,7 +555,16 @@
    
    
   </div>
-  
+  <div id="animatedModal">
+            <!--THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID -->
+            <div  id="btn-close-modal" class="close-animatedModal"> 
+                CLOSE MODAL
+            </div>
+                
+            <div class="modal-content">
+                <!--Your modal content goes here-->
+            </div>
+        </div>
  <div class="mainM" data-role="panel" data-display="overlay" data-theme="b" id="sellPanel">
         <h1>RECICLAJE LIBRE</h1>
  	    <p class="usern"></p>

@@ -120,7 +120,7 @@ box-shadow: 0px -5px 5px 0px rgba(189,189,189,1);
 	text-shadow: none !important;
 	box-shadow: none !important;
 }
-#regForm > .ui-input-text {
+#regForm > .ui-input-text, #accForm > .ui-input-text {
 	background: transparent !important;
 	border: 1px solid #8a8a8a !important;
 	border-radius: 0 !important;
@@ -138,10 +138,10 @@ box-shadow: 0px -5px 5px 0px rgba(189,189,189,1);
 	box-shadow: none !important;
 	margin-bottom: 20px;
 }
-#regForm > .ui-select {
+#regForm > .ui-select,#accForm > .ui-select {
 	margin-bottom: 20px;
 }
-#regForm > .ui-select > a {
+#regForm > .ui-select > a ,#accForm > .ui-select > a{
 	background-color: #f9f9f9 !important;
 	border: 1px solid #8a8a8a !important;
 	border-radius: 0 !important;
@@ -159,6 +159,12 @@ box-shadow: 0px -5px 5px 0px rgba(189,189,189,1);
 	text-shadow: none !important;
     color: #000;
     text-align: left; 
+}
+#saveD{
+	visibility: hidden;
+}
+.accT{
+	font-family: "nexa";
 }
 .prodl{
 	float:left;
@@ -368,7 +374,8 @@ box-shadow: 0px -5px 5px 0px rgba(189,189,189,1);
 .mtitle{
 	color: #000;
 	text-align: center;
-	font-family: "rale"
+	font-size:16px;
+	font-family: "ralem"
 }
 .mats{
 	text-decoration: none;
@@ -399,6 +406,7 @@ box-shadow: 0px -5px 5px 0px rgba(189,189,189,1);
  box-shadow: none! important;
 	
 }
+
 #filters-button >span{
 	text-shadow: none !important;
 	color: #fff;
@@ -453,6 +461,20 @@ box-shadow: 0px -5px 5px 0px rgba(189,189,189,1);
 	font-weight: 700;
 }
 #pricep{
+	font-weight: 700;
+	color: #f89600;
+}
+#filterF  .ui-input-btn {
+	width:150px;
+	display:table;
+	margin:auto;
+background: #f89600 !important;
+    border-radius: 0 !important;
+    color: #fff !important;
+   text-shadow: none! important;
+    box-shadow: none! important;
+}
+#colorp{
 	font-weight: 700;
 	color: #f89600;
 }

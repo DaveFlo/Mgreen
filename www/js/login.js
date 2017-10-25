@@ -38,6 +38,42 @@ if(localStorage.getItem("user")!=null){
 
         });
     }
+    function updateD(){
+    var form = new FormData($("#accForm")[0]);
+    form.append("userm",localStorage.getItem("user"));
+    	$.ajax({
+	url: "http://www.icone-solutions.com/mgreen/sqlOP.php",
+	type: "POST",
+	data: form,
+	contentType: false,
+	cache: false,
+	processData:false,
+	success: function(data){
+		
+	    if(data.toString()=="1"){
+	    	
+	    	$('#regForm')[0].reset();
+            swal("Listo","Tus datos han sido modificados.","success");
+            $("#edit").addClass("ui-icon-edit");
+ 	 $("#edit").removeClass("ui-icon-delete");
+ 	$('#accForm input,#accForm textarea').css("background-color","transparent");
+ 	$('#accForm input,#accForm textarea').prop('readonly', true);
+ 	
+		$("#saveD").css("visibility","hidden");
+	    	$.mobile.navigate( "#land", { transition : "slideup",info: "info about the #foo hash" });
+
+
+	    }else{
+	    	
+	    	
+	    	
+           swal("Error","No se han podido modificar tus datos, revisa tu conexión e intentalo de nuevo","error");
+	    }
+	   
+	}
+
+        });
+    }
     function prodUp(){
     var form = new FormData($("#prodForm")[0]);
     form.append("usi",localStorage.getItem("usi"));
@@ -164,6 +200,26 @@ $(document).ready(function(){
             }
          });
    });
+   $("#accForm").submit(function(e){
+    	e.preventDefault();
+	
+	    swal({
+          title: "¿Estás seguro que tus datos son correctos?",
+          text: "",
+          type: "info",
+          showCancelButton: true,
+          confirmButtonColor: "#DD6B55",
+          confirmButtonText: "Aceptar",
+          showLoaderOnConfirm: true,
+          closeOnConfirm: false,
+          cancelButtonText: "Cancelar",
+        },
+        function(isConfirm){
+	        if(isConfirm){
+ 	         updateD();
+            }
+         });
+   });
    $("#prodForm").submit(function(e){
     	e.preventDefault();
 	     var empty = $(this).find(".inputp").filter(function() {
@@ -204,7 +260,9 @@ $(document).ready(function(){
 	type: "POST",
 	data: {mat:mat},
 	success: function(data){
-		console.log(data);
+		$("#category").val(mat);
+		$("#catname").text(mat);
+		
 		var jsonObj = jQuery.parseJSON(data);
 		var pdi = jsonObj[0].split("+");
 		var name = jsonObj[1].split("+");
@@ -225,7 +283,7 @@ $(document).ready(function(){
     	      '<div class="imgcon">'+
     	      '<img width="100%" src="http://icone-solutions.com/mgreen/products/img/'+temp[0]+'" />'+
     	      '</div>'+
-    	      '<p>Nombre material</p>'+
+    	      '<p>'+name[i]+'</p>'+
     	      '<p>Nombre Compañia</p>'+
     	      '<p>País</p>'+
     	      '</div>'+
@@ -235,7 +293,7 @@ $(document).ready(function(){
     	      '<div class="imgcon">'+
     	      '<img width="100%" src="http://icone-solutions.com/mgreen/products/img/'+temp2[0]+'" />'+
     	      '</div>'+
-    	      '<p>Nombre material</p>'+
+    	      '<p>'+name[i]+'</p>'+
     	      '<p>Nombre Compañia</p>'+
     	      '<p>País</p>'+
     	      '</div>'+
@@ -248,7 +306,7 @@ $(document).ready(function(){
     	      '<div class="imgcon">'+
     	      '<img width="100%" src="http://icone-solutions.com/mgreen/products/img/'+temp[0]+'" />'+
     	      '</div>'+
-    	      '<p>Nombre material</p>'+
+    	      '<p>'+name[i]+'</p>'+
     	      '<p>Nombre Compañia</p>'+
     	      '<p>País</p>'+
     	      '</div>'+
@@ -262,6 +320,145 @@ $(document).ready(function(){
 	 	$(".prodscon").append("<h1>No hay productos en esta categoría</h1>");
 	 }
 	   $.mobile.navigate( "#prod", {transition:"flip" });
+    }
+    
+  });
+ });
+ var datosp= Array();
+ $("#edit").click(function(){
+ 	if($(this).hasClass("ui-icon-edit")){
+ 	$(this).removeClass("ui-icon-edit");
+ 	$(this).addClass("ui-icon-delete");
+ 	$('#accForm input[type=text],#accForm textarea').css("background-color","#fff");
+ 	$('#accForm input,#accForm textarea').prop('readonly', false);
+ 	$("#saveD").css("visibility","visible");
+ 	}else{
+ 	$(this).addClass("ui-icon-edit");
+ 	$(this).removeClass("ui-icon-delete");
+ 	$('#accForm input,#accForm textarea').css("background-color","transparent");
+ 	$('#accForm input,#accForm textarea').prop('readonly', true);
+ 	$("#nombrea").val(datosp[1]);
+		$("#compa").val(datosp[2]);
+		$("#addressa").val(datosp[3]);
+		$("#statea").val(datosp[4]);
+		$("#citya").val(datosp[5]);
+		$("#paisa").val(datosp[6]);
+		$("#telefonoa").val(datosp[8]);
+		$("#cellpa").val(datosp[9]);
+		$("#joba").val(datosp[10]);
+		$("#saveD").css("visibility","hidden");
+ 	}
+ 	
+ 	
+ });
+ 
+ $(".account").click(function(){
+ 	var idu = localStorage.getItem("user");
+ 	$.ajax({
+	url: "http://www.icone-solutions.com/mgreen/sqlOP.php",
+	type: "POST",
+	data: {idu:idu},
+	success: function(data){
+		console.log(data);
+		var obj = jQuery.parseJSON(data);
+		datosp =obj;
+		$("#nombrea").val(obj[1]);
+		$("#compa").val(obj[2]);
+		$("#addressa").val(obj[3]);
+		$("#statea").val(obj[4]);
+		$("#citya").val(obj[5]);
+		$("#paisa").val(obj[6]);
+		$("#telefonoa").val(obj[8]);
+		$("#cellpa").val(obj[9]);
+		$("#joba").val(obj[10]);
+	}
+	});
+ });
+ $("#filterF").submit(function(e){
+ 	e.preventDefault();
+ 	
+ 	 html = $(this).jqmData( "html" ) || "";
+    $.mobile.loading( "show", {
+            text: "Cargando",
+            textVisible: true,
+            theme: "b",
+            textonly: false,
+            html: html
+    });
+ 	 var form = new FormData($("#filterF")[0]);
+    $.ajax({
+	url: "http://www.icone-solutions.com/mgreen/sqlOP.php",
+	type: "POST",
+	data: form,
+	contentType: false,
+	cache: false,
+	processData:false,
+	success: function(data){
+		console.log(data);
+		if(data.toString()!=""){
+		$(".prodscon").empty();
+		var jsonObj = jQuery.parseJSON(data);
+		var pdi = jsonObj[0].split("+");
+		var name = jsonObj[1].split("+");
+		var price = jsonObj[2].split("+");
+		var esps = jsonObj[3].split("+");
+		var color = jsonObj[4].split("+");
+		var images = jsonObj[5].split("+");
+		
+		var b = "a"
+		if(pdi[0]!=""){
+		for(var i =0; i<pdi.length;i=i+2){
+			var temp = images[i].split(",");
+			
+			if(images[i+1]!=undefined){
+				var temp2 = images[i+1].split(",");
+			$(".prodscon").append('<div class="ui-grid-a"><div class="ui-block-a sprods "><a class="items" data-pid="'+pdi[i]+'" >'+
+    	      '<div class="sellp">'+
+    	      '<div class="imgcon">'+
+    	      '<img width="100%" src="http://icone-solutions.com/mgreen/products/img/'+temp[0]+'" />'+
+    	      '</div>'+
+    	      '<p>'+name[i]+'</p>'+
+    	      '<p>Nombre Compañia</p>'+
+    	      '<p>País</p>'+
+    	      '</div>'+
+    	      '</a></div>'+
+    	      '<div class="ui-block-b sprods "><a class="items" data-pid="'+pdi[i+1]+'">'+
+    	      '<div class="sellp">'+
+    	      '<div class="imgcon">'+
+    	      '<img width="100%" src="http://icone-solutions.com/mgreen/products/img/'+temp2[0]+'" />'+
+    	      '</div>'+
+    	      '<p>'+name[i]+'</p>'+
+    	      '<p>Nombre Compañia</p>'+
+    	      '<p>País</p>'+
+    	      '</div>'+
+    	      '</a></div>'+
+    	      '</div><br/>');
+    	     }else{
+    	     	
+			$(".prodscon").append('<div class="ui-grid-a"><div class="ui-block-a sprods "><a class="items" data-pid="'+pdi[i]+'" >'+
+    	      '<div class="sellp">'+
+    	      '<div class="imgcon">'+
+    	      '<img width="100%" src="http://icone-solutions.com/mgreen/products/img/'+temp[0]+'" />'+
+    	      '</div>'+
+    	      '<p>'+name[i]+'</p>'+
+    	      '<p>Nombre Compañia</p>'+
+    	      '<p>País</p>'+
+    	      '</div>'+
+    	      '</a></div>'+
+    	      
+    	      '</div>');
+    	     }
+	      
+	   }
+	 }else{
+	 	$(".prodscon").append("<h1>No hay productos en esta categoría</h1>");
+	 }
+	  $.mobile.loading( "hide" );
+	   //$.mobile.navigate( "#prod", {transition:"flip" });
+	  }else{
+	  	$.mobile.loading( "hide" );
+	  	
+	  }
     }
   });
  });
@@ -279,10 +476,10 @@ $(".prodscon").on('click', 'div > div > .items', function(e){
 	type: "POST",
 	data: {pid:pid},
 	success: function(data){
-		console.log(data);
+		
 		var jsonObj = jQuery.parseJSON(data);
 		var images = jsonObj[11].split(",");
-		console.log(jsonObj);
+		
 		$(".backb").text(jsonObj[1]);
 		$("#namep").text(jsonObj[1]);
 		$("#orip").text(jsonObj[2]);
@@ -293,7 +490,7 @@ $(".prodscon").on('click', 'div > div > .items', function(e){
 		$("#pricep").text("$"+jsonObj[7]);
 		$("#cantp").text(jsonObj[8]+" Disponibles");
 		$("#descr").text(jsonObj[9]);
-		
+		$("#colorp").text(jsonObj[10]);
 		$("#conc").text(jsonObj[12]);
 		$("#namec").text(jsonObj[13]);
 		$("#dirc").text(jsonObj[14]);
@@ -308,8 +505,36 @@ $(".prodscon").on('click', 'div > div > .items', function(e){
 	}
 	});
  });
-
+ $("#color, #origin").change(function(){
+ 	var el = this;
+ 	if($(this).val()=="Otro"){
+ 	swal({
+    title: "Color",
+    text: "Escribe el color de tu producto",
+    showCancelButton: true,
+    type: "input",
+    inputType: "text",
+    confirmButtonColor: "#DD6B55",
+    confirmButtonText: "Aceptar",
+    cancelButtonText: "Cancelar",
+     closeOnConfirm: false,
+    inputPlaceholder: "color...",
+    },
+   function(value){
+     if (value==="") {
+       	swal.showInputError("Introduce el nombre del color");
+     }else{
+     	$(el).append("<option value='"+value+"'>"+value+"</option>");
+     	$(el).val(value).attr('selected', true);
+     	$(el).selectmenu('refresh', true);
+     	swal.close();
+     }
+     });
+    }
+ });
+ 
 });
+
 
 $(document).on('pageshow', '#item', function(){ 
     if($('.swiper-pagination .swiper-pagination-progressbar').length == 0) {
