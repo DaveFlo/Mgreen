@@ -50,9 +50,66 @@
      <br />
      <input id="logac" type="submit" class="gbutton"  data-role="none" value="Entrar">
    </form>
-   <a href="#register" class="regt " data-transition="flip">Registrarse</a>
+   <a href="#membership" class="regt " data-transition="flip">Registrarse</a>
 </div>
   </div>
+  <div data-role="page" id="registerP">
+
+  <div data-role="header" class="toph">
+    <h2 class="htitle" >Reciclaje <br/>Libre</h2>
+    
+    <a href="#inicio" data-role="none" class="rheader ui-btn-right" data-transition="slidedown" >Inicio</a>
+  </div>
+
+  <div data-role="main" class="ui-content">
+    <form id="regFormP" method="post">
+     
+     <span class="labreg" for="nombre">Nombre de Contacto</span>
+     <input type="text" class="inputr" data-clear-btn="true" name="nombre"  value="">
+     <span class="labreg" for="comp">Compañia</span>
+     <input type="text" class="inputr" data-clear-btn="true" name="comp"  value="">
+     <span class="labreg" for="address">Dirección</span>
+     <textarea class="regarea" name="address"  id="address"></textarea>
+     <span class="labreg"  for="state">Estado</span>
+     <input type="text" class="inputr" data-clear-btn="true" name="state"    value="">
+     
+     <span class="labreg" for="city">Ciudad</span>
+     <input class="inputr" type="text" data-clear-btn="true" name="city"  value="">
+     <span class="labreg" for="pais">País</span>
+     <input class="inputr" type="text" data-clear-btn="true" name="pais"  value="">
+     <span class="labreg" for="mail">E-mail</span>
+     <input class="inputr" type="text" data-clear-btn="true" name="mail"  value="">
+     <span class="labreg" for="telefono">Teléfono</span>
+     <input class="inputr" type="text" data-clear-btn="true" name="telefono"  value="">
+     <span class="labreg" for="cellp">Celular</span>
+     <input class="inputr" type="text" data-clear-btn="true" name="cellp"  value="">
+     <span class="labreg" for="job">¿A qué te dedicas?</span>
+     <select data-iconpos="left"  name="job" id="job" data-native-menu="false">
+     	<option value="Fabricante">Fabricante</option>
+     	<option value="Reciclante">Reciclante</option>
+     	<option value="Revendedor">Revendedor</option>
+     </select>
+     <hr/>
+     <h2 class="mtitle">Datos de pago</h2>
+     <span class="labreg" for="card">Nombre </span>
+	 <input type="text" id="nombret" data-conekta="card[name]" data-clear-btn="true"  name="nombret" class="inputr" placeholder="Nombre del tarjetahabiente" />
+      <span class="labreg" for="card">No. de tarjeta</span>
+	  <input type="text" id="card"  name="card"  class="inputr" data-clear-btn="true" data-conekta="card[number]"  />
+	  <input type="hidden" id="month"  data-conekta="card[exp_month]" />
+      <input type="hidden" id="year" data-conekta="card[exp_year]"/>
+      <span class="labreg" for="expdate">Fecha Expiración</span>
+ 	  <input type="text"  name="exdate" id="expdate" class="inputr" data-clear-btn="true" placeholder="mm/aaaa" />
+ 	  <span class="labreg" for="cvv">CVV</span>
+	  <input type="text" min="3"  maxlength="3"  id="cvv" name="cvv" data-clear-btn="true" class="inputr" data-conekta="card[cvc]" />
+	  <img src="img/credit_cards.png" class="elm-cent" width="160px"/><br/>
+     <input type="submit" class="gbutton" data-role="none" value="Registrarme">
+   </form>
+  </div>
+  
+  
+
+  </div>
+  
   <div data-role="page" id="register">
 
   <div data-role="header" class="toph">
@@ -94,6 +151,87 @@
   </div>
   
   
+
+  </div>
+  
+  <div data-role="page" id="membership">
+
+  <div data-role="header" class="toph">
+    <h2 class="htitle" >&nbsp;</h2>
+    <a href="#inicio" data-role="none" class="rheader2 ui-btn-right" data-transition="slidedown" >Inicio</a>
+  </div>
+  <div data-role="main" class="ui-content">
+   
+   <h2 class="mtitle">Membresías</h2>
+ 			<p class="mtext">
+ 				Para una promoción efectiva de tu empresa, seleciona una membresía de acuerdo a tu actividad. RECICLADOR incluye patios, recolectores,
+ 				fundiciones, brokers, consumidores finales y todos los interesados en comprar y vender materiales. LIBRES es para visitantes y empresas industriales
+ 				que desean vender los desperdicios que generan. No estas obligado a renovaciones automáticas, no hay costos adicionales.
+ 			</p>
+ 	<div class="ui-grid-a">
+ 		
+ 			<div class="membership">
+ 				<h1>Libre</h1>
+ 			<hr>
+ 			<ul class="memul">
+ 				<li>Publicar anuncios en sección venta</li>
+ 				<li>Publicar anuncios en sección compra</li>
+ 				<li>Publicar anuncios en sección maquinaria</li>
+ 				<li>Contacto sin restricción con los miembros</li>
+ 				<li>Acceso a publicación de anuncios pagados</li>
+ 			</ul>
+ 			
+ 			<br />
+ 			</div>
+ 			<a href="#register" class="buym">Comprar</a>
+ 		
+ 		
+ 	</div>
+ 	<br />
+ 	<div class="ui-grid-a">
+ 		
+ 			<div class="membership">
+ 				<h1>Reciclador</h1>
+ 			<hr>
+ 			<ul class="memul">
+ 				<li>Publicar anuncios en sección venta</li>
+ 				<li>Publicar anuncios en sección compra</li>
+ 				<li>Publicar anuncios en sección maquinaria</li>
+ 				<li>Contacto sin restricción con los miembros</li>
+ 				<li>Acceso a publicación de anuncios pagados</li>
+ 			</ul>
+ 			
+ 			<br />
+ 			</div>
+ 			<a href="#registerP" data-typem="reciclador" class="buym">Comprar</a>
+ 		
+ 		
+ 	</div>
+ 	<br />
+ 	<div class="ui-grid-a">
+ 		
+ 			<div class="membership">
+ 				<h1>Maquinaria</h1>
+ 			<hr>
+ 			<ul class="memul">
+ 				<li>Publicar anuncios en sección venta</li>
+ 				<li>Publicar anuncios en sección compra</li>
+ 				<li>Publicar anuncios en sección maquinaria</li>
+ 				<li>Contacto sin restricción con los miembros</li>
+ 				<li>Acceso a publicación de anuncios pagados</li>
+ 			</ul>
+ 			
+ 			<br />
+ 			</div>
+ 			<a href="#registerP" data-typem="maquinaria" class="buym">Comprar</a>
+ 		
+ 		
+ 	</div>
+   
+   
+  </div>
+  
+ 
 
   </div>
 <div data-role="page" id="land">
@@ -584,6 +722,9 @@
   </div>
     <script type="text/javascript" src="js/swiper.min.js"></script>
     <script type="text/javascript" src="js/sweetalert.min.js"></script>
+    <script src="js/conekta.js"></script>
+    <script src="js/jquery.inputmask.js"></script>
+    <script src="js/jquery.inputmask.date.extensions.js"></script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/login.js"></script>

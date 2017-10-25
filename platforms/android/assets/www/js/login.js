@@ -2,24 +2,51 @@ if(localStorage.getItem("user")!=null){
    $.mobile.navigate( "#land", {transition:"pop" });
 }
 
+Conekta.setPublicKey('key_L7Psm9dyS6CdPoozJGB6fdQ');
+Conekta.setLanguage("es"); 
+function checkC(){
+	var $form = $("#regFormP");
+    $form.find("button").prop("disabled", true);
+    Conekta.Token.create($form, conektaSuccessResponseHandler, conektaErrorResponseHandler);
+	
+    	
+}
+ var conektaSuccessResponseHandler = function(token) {
+  	
+    var $form = $("#regForm");
+    //Inserta el token_id en la forma para que se envíe al servidor
+    $form.append($("<input type='hidden' name='conektaTokenId' id='conektaTokenId'>").val(token.id));
+    register("#regFormP");
+    	
 
+  };
+  var conektaErrorResponseHandler = function(response) {
+  
+  	
+  	swal("Error",response.message_to_purchaser,"error");
+  	
+
+    var $form = $("#regForm");
+    
+    
+  };
     
     
     
-    function register(){
-    var form = new FormData($("#regForm")[0]);
+    function register(rform){
+    var form = new FormData($(rform)[0]);
     	$.ajax({
-	url: "http://www.icone-solutions.com/mgreen/sqlOP.php",
+	url: "http://www.icone-solutions.com/mgreen/subscription.php",
 	type: "POST",
 	data: form,
 	contentType: false,
 	cache: false,
 	processData:false,
 	success: function(data){
-		
+		console.log(data);
 	    if(data.toString()=="1"){
 	    	
-	    	$('#regForm')[0].reset();
+	    	$(rform)[0].reset();
             swal("Listo","Tu usuario ha sido registrado exitosamente.","success");
 	    	$.mobile.navigate( "#inicio", { transition : "slide",info: "info about the #foo hash" });
 
@@ -156,7 +183,14 @@ var connectionStatus = false;
 
 
 $(document).ready(function(){
-	
+	$(function() {
+
+                $("#card").inputmask("9999 9999 9999 9999", {"placeholder": "0000 0000 0000 0000"});
+                $("#cvv").inputmask("999", {"placeholder": "000"});
+               $("#expdate").inputmask("99/9999", {"placeholder": "mm/aaaa"});
+                $("[data-mask]").inputmask();
+
+     });
     document.addEventListener("backbutton", function(e){
     	
     
@@ -180,6 +214,31 @@ $(document).ready(function(){
     $(".pic").change(function(){
         readURL(this);
     });
+   $("#regFormP").submit(function(e){
+    	e.preventDefault();
+	
+	    swal({
+          title: "¿Estás seguro que tus datos son correctos?",
+          text: "",
+          type: "info",
+          showCancelButton: true,
+          confirmButtonColor: "#DD6B55",
+          confirmButtonText: "Aceptar",
+          showLoaderOnConfirm: true,
+          closeOnConfirm: false,
+          cancelButtonText: "Cancelar",
+        },
+        function(isConfirm){
+	        if(isConfirm){
+	        	var exd = $("#expdate").val().split("/");
+        var month =  exd[0];
+        var year =  exd[1];
+        $("#month").val(month);
+        $("#year").val(year);       
+ 	         checkC();
+            }
+         });
+   });
    $("#regForm").submit(function(e){
     	e.preventDefault();
 	
@@ -196,7 +255,7 @@ $(document).ready(function(){
         },
         function(isConfirm){
 	        if(isConfirm){
- 	         register();
+ 	         register("#regForm");
             }
          });
    });
@@ -462,9 +521,23 @@ $(document).ready(function(){
     }
   });
  });
+
 $(".close").click(function(){
    	       localStorage.clear();
    	       $.mobile.navigate( "#inicio", {transition:"pop", info: "info about the #foo hash" });
+   });
+   $(".buym").click(function(){
+   	if($(this).attr("href")!="#register"){
+   		var typem=$(this).data("typem");
+   		if($("#tm").length){
+   			$("#tm").val(typem);
+   			console.log($("#tm").val());
+   		}else{
+   			$("#regFormP").append("<input type='hidden' id='tm' name='member' value='"+typem+"' />")
+   		}
+   		
+   		
+   	}
    });
 $(".usern").text(localStorage.getItem("user"));
 $(".prodscon").on('click', 'div > div > .items', function(e){ 
