@@ -148,10 +148,10 @@ function checkC(){
     }
     function login(){
 	
-    	var form = new FormData($("#logForm")[0]);
+    var form = new FormData($("#logForm")[0]);
     	
-    	//form.append("regID",localStorage.getItem('registrationId'));
-    	$.ajax({
+    //form.append("regID",localStorage.getItem('registrationId'));
+    $.ajax({
 	url: "http://www.icone-solutions.com/mgreen/sqlOP.php",
 	type: "POST",
 	data: form,
@@ -222,6 +222,7 @@ $(document).ready(function(){
     $(".pic").change(function(){
         readURL(this);
     });
+    
    $("#regFormP").submit(function(e){
     	e.preventDefault();
 	
