@@ -160,6 +160,7 @@ function checkC(){
 	processData:false,
 	error: function(xhr, settings, exception){ alert(xhr.responseText)},
 	success: function(data){
+		 $.mobile.loading( "hide" );
 		$("#logac").prop("disabled",false);
 	    if(data.toString()!=="0"){
 	    	var datos = data.toString().split(",");
@@ -203,7 +204,14 @@ $(document).ready(function(){
          }, false);
     $("#logForm").submit(function(e){
     	e.preventDefault();
-    	
+    	html = $(this).jqmData( "html" ) || "";
+    $.mobile.loading( "show", {
+            text: "Verificando",
+            textVisible: true,
+            theme: "b",
+            textonly: false,
+            html: html
+    });
     	$("#logac").prop("disabled",true);
 	    login();
    });
