@@ -113,7 +113,7 @@ function checkC(){
  	 $("#edit").removeClass("ui-icon-delete");
  	$('#accForm input,#accForm textarea').css("background-color","transparent");
  	$('#accForm input,#accForm textarea').prop('readonly', true);
- 	$('#joba').prop('disabled', true);
+ 	$('#joba').selectmenu('disable');
 		$("#saveD").css("visibility","hidden");
 	    	$.mobile.navigate( "#land", { transition : "slideup",info: "info about the #foo hash" });
 
@@ -422,20 +422,21 @@ $(document).ready(function(){
   });
  });
  var datosp= Array();
- $('#joba').prop('disabled', true);
+ 
  $("#edit").click(function(){
  	if($(this).hasClass("ui-icon-edit")){
  	$(this).removeClass("ui-icon-edit");
  	$(this).addClass("ui-icon-delete");
  	$('#accForm input[type=text],#accForm textarea').css("background-color","#fff");
  	$('#accForm input,#accForm textarea').prop('readonly', false);
- 	$('#joba').prop('disabled', false);
+ 	$('#joba').selectmenu('enable');
  	$("#saveD").css("visibility","visible");
  	}else{
  	$(this).addClass("ui-icon-edit");
  	$(this).removeClass("ui-icon-delete");
  	$('#accForm input,#accForm textarea').css("background-color","transparent");
  	$('#accForm input,#accForm textarea').prop('readonly', true);
+ 	$('#joba').selectmenu('disable');
  	$("#nombrea").val(datosp[1]);
 		$("#compa").val(datosp[2]);
 		$("#addressa").val(datosp[3]);
