@@ -71,7 +71,7 @@ function checkC(){
 	cache: false,
 	processData:false,
 	success: function(data){
-		console.log(data);
+		
 	    if(data.toString()=="1"){
 	    	
 	    	$(rform)[0].reset();
@@ -428,16 +428,16 @@ $(document).ready(function(){
  	$(this).removeClass("ui-icon-edit");
  	$(this).addClass("ui-icon-delete");
  	$('#accForm input[type=text],#accForm textarea').css("background-color","#fff");
- 	$('#accForm input,#accForm textarea').prop('readonly', false);
+ 	$('#accForm input[type=text],#accForm textarea').prop('readonly', false);
  	$('#joba').selectmenu('enable');
  	$("#saveD").css("visibility","visible");
  	}else{
  	$(this).addClass("ui-icon-edit");
  	$(this).removeClass("ui-icon-delete");
- 	$('#accForm input,#accForm textarea').css("background-color","transparent");
- 	$('#accForm input,#accForm textarea').prop('readonly', true);
+ 	$('#accForm input[type=text],#accForm textarea').css("background-color","transparent");
+ 	$('#accForm input[type=text],#accForm textarea').prop('readonly', true);
  	$('#joba').selectmenu('disable');
- 	$('#joba').selectmenu('refresh', true);
+ 	
  	$("#nombrea").val(datosp[1]);
 		$("#compa").val(datosp[2]);
 		$("#addressa").val(datosp[3]);
@@ -449,7 +449,7 @@ $(document).ready(function(){
 		$("#joba").val(datosp[10]);
 		$("#saveD").css("visibility","hidden");
  	}
- 	
+ 	$('#joba').selectmenu('refresh', true);
  	
  });
  
@@ -460,7 +460,7 @@ $(document).ready(function(){
 	type: "POST",
 	data: {idu:idu},
 	success: function(data){
-		console.log(data);
+		
 		var obj = jQuery.parseJSON(data);
 		datosp =obj;
 		$("#nombrea").val(obj[1]);
@@ -495,7 +495,7 @@ $(document).ready(function(){
 	cache: false,
 	processData:false,
 	success: function(data){
-		console.log(data);
+		
 		if(data.toString()!=""){
 		$(".prodscon").empty();
 		var jsonObj = jQuery.parseJSON(data);
@@ -573,7 +573,7 @@ $(".close").click(function(){
    		var typem=$(this).data("typem");
    		if($("#tm").length){
    			$("#tm").val(typem);
-   			console.log($("#tm").val());
+   			
    		}else{
    			$("#regFormP").append("<input type='hidden' id='tm' name='member' value='"+typem+"' />")
    		}
