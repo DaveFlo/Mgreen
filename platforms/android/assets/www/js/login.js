@@ -518,9 +518,9 @@ $(document).ready(function(){
     	      '<div class="imgcon">'+
     	      '<img width="100%" src="http://icone-solutions.com/mgreen/products/img/'+temp[0]+'" />'+
     	      '</div>'+
-    	      '<p>'+name[i]+'</p>'+
-    	      '<p>Nombre Compañia</p>'+
-    	      '<p>País</p>'+
+    	     '<p>'+name[i]+'</p>'+
+    	      '<p>'+price[i]+'</p>'+
+    	      '<p>'+esps[i]+'</p>'+
     	      '</div>'+
     	      '</a></div>'+
     	      '<div class="ui-block-b sprods "><a class="items" data-pid="'+pdi[i+1]+'">'+
@@ -529,8 +529,8 @@ $(document).ready(function(){
     	      '<img width="100%" src="http://icone-solutions.com/mgreen/products/img/'+temp2[0]+'" />'+
     	      '</div>'+
     	      '<p>'+name[i]+'</p>'+
-    	      '<p>Nombre Compañia</p>'+
-    	      '<p>País</p>'+
+    	      '<p>'+price[i]+'</p>'+
+    	      '<p>'+esps[i]+'</p>'+
     	      '</div>'+
     	      '</a></div>'+
     	      '</div><br/>');
@@ -542,8 +542,8 @@ $(document).ready(function(){
     	      '<img width="100%" src="http://icone-solutions.com/mgreen/products/img/'+temp[0]+'" />'+
     	      '</div>'+
     	      '<p>'+name[i]+'</p>'+
-    	      '<p>Nombre Compañia</p>'+
-    	      '<p>País</p>'+
+    	      '<p>'+price[i]+'</p>'+
+    	      '<p>'+esps[i]+'</p>'+
     	      '</div>'+
     	      '</a></div>'+
     	      
