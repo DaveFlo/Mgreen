@@ -437,6 +437,7 @@ $(document).ready(function(){
  	$('#accForm input,#accForm textarea').css("background-color","transparent");
  	$('#accForm input,#accForm textarea').prop('readonly', true);
  	$('#joba').selectmenu('disable');
+ 	$('#joba').selectmenu('refresh', true);
  	$("#nombrea").val(datosp[1]);
 		$("#compa").val(datosp[2]);
 		$("#addressa").val(datosp[3]);
