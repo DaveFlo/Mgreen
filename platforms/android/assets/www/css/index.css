@@ -317,7 +317,7 @@ box-shadow: 0px -5px 5px 0px rgba(189,189,189,1);
 	top:0;
 	left:0;
 }
-.pic::parent { display: none !important; }
+
 .pic{
 	display: none !important;
 }

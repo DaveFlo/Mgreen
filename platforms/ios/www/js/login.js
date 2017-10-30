@@ -1,5 +1,33 @@
 if(localStorage.getItem("user")!=null){
    $.mobile.navigate( "#land", {transition:"pop" });
+  var usname= localStorage.getItem("user");
+       $.ajax({
+	url: "http://www.icone-solutions.com/mgreen/checkM.php",
+	type: "POST",
+	data: {user:usname},
+	success: function(data){
+		
+		if(data.toString()=="libre"){
+			$("#filterF").remove();
+		}else if(data.toString()=="premium"){
+			
+		}else{
+			$("#filters").empty();
+			$("#filters").append('<option>Buscar por</option><optgroup  label="Origen">'+
+            '<option value="Post Industrial">Post Industrial</option>'+
+     	    '<option value="Post Consumo">Post Consumo</option>'+
+     	    '<option value="Otro">Otro</option>'+
+       ' </optgroup>'+
+        '<optgroup label="Presentación">'+
+            '<option value="Pieza">Pieza</option>'+
+     	    '<option value="Purga">Purga</option>'+
+     	    '<option value="Barredura">Barredura</option>'+
+     	    '<option value="Molido">Molido</option>'+
+     	    '<option value="Pelet">Pelet</option>'+
+       ' </optgroup>');
+		}
+    }
+    });
 }
 
 Conekta.setPublicKey('key_L7Psm9dyS6CdPoozJGB6fdQ');
@@ -85,7 +113,7 @@ function checkC(){
  	 $("#edit").removeClass("ui-icon-delete");
  	$('#accForm input,#accForm textarea').css("background-color","transparent");
  	$('#accForm input,#accForm textarea').prop('readonly', true);
- 	
+ 	$('#joba').prop('disabled', true);
 		$("#saveD").css("visibility","hidden");
 	    	$.mobile.navigate( "#land", { transition : "slideup",info: "info about the #foo hash" });
 
@@ -184,6 +212,7 @@ var connectionStatus = false;
 
 
 $(document).ready(function(){
+	
 	$(function() {
 
                 $("#card").inputmask("9999 9999 9999 9999", {"placeholder": "0000 0000 0000 0000"});
@@ -393,12 +422,14 @@ $(document).ready(function(){
   });
  });
  var datosp= Array();
+ $('#joba').prop('disabled', true);
  $("#edit").click(function(){
  	if($(this).hasClass("ui-icon-edit")){
  	$(this).removeClass("ui-icon-edit");
  	$(this).addClass("ui-icon-delete");
  	$('#accForm input[type=text],#accForm textarea').css("background-color","#fff");
  	$('#accForm input,#accForm textarea').prop('readonly', false);
+ 	$('#joba').prop('disabled', false);
  	$("#saveD").css("visibility","visible");
  	}else{
  	$(this).addClass("ui-icon-edit");
