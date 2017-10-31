@@ -1,33 +1,6 @@
 if(localStorage.getItem("user")!=null){
    $.mobile.navigate( "#land", {transition:"pop" });
-  var usname= localStorage.getItem("user");
-       $.ajax({
-	url: "http://www.icone-solutions.com/mgreen/checkM.php",
-	type: "POST",
-	data: {user:usname},
-	success: function(data){
-		
-		if(data.toString()=="libre"){
-			$("#filterF").remove();
-		}else if(data.toString()=="premium"){
-			
-		}else{
-			$("#filters").empty();
-			$("#filters").append('<option>Buscar por</option><optgroup  label="Origen">'+
-            '<option value="Post Industrial">Post Industrial</option>'+
-     	    '<option value="Post Consumo">Post Consumo</option>'+
-     	    '<option value="Otro">Otro</option>'+
-       ' </optgroup>'+
-        '<optgroup label="Presentación">'+
-            '<option value="Pieza">Pieza</option>'+
-     	    '<option value="Purga">Purga</option>'+
-     	    '<option value="Barredura">Barredura</option>'+
-     	    '<option value="Molido">Molido</option>'+
-     	    '<option value="Pelet">Pelet</option>'+
-       ' </optgroup>');
-		}
-    }
-    });
+  
 }
 
 Conekta.setPublicKey('key_L7Psm9dyS6CdPoozJGB6fdQ');
@@ -144,6 +117,9 @@ function checkC(){
 		
 	    if(data.toString()=="1"){
 	    	$(".imgup").attr("src","");
+	    	$("#extraO").remove();
+	    	$("#origin").val(value).attr('selected', true);
+     	    $("#origin").selectmenu('refresh', true);
 	    	$('#prodForm')[0].reset();
             swal("Listo","Tu anuncio ha sido dado de alta.","success");
 	    	$.mobile.navigate( "#land", { transition : "slide",info: "info about the #foo hash" });
@@ -596,24 +572,24 @@ $(".prodscon").on('click', 'div > div > .items', function(e){
 		var images = jsonObj[11].split(",");
 		
 		$(".backb").text(jsonObj[1]);
-		$("#namep").text(jsonObj[1]);
-		$("#orip").text(jsonObj[2]);
-		$("#presp").text(jsonObj[3]);
-		$("#empaqp").text(jsonObj[4]);
-		$("#unitp").text(jsonObj[5]);
-		$("#recp").text(jsonObj[6]);
+		$("#namep").text("Material: "+jsonObj[1]);
+		$("#orip").text("Origen: "+jsonObj[2]);
+		$("#presp").text("Presentación: "+jsonObj[3]);
+		$("#empaqp").text("Empaque: "+jsonObj[4]);
+		$("#unitp").text("Unidad: "+jsonObj[5]);
+		$("#recp").text("Recurrencia: "+jsonObj[6]);
 		$("#pricep").text("$"+jsonObj[7]);
 		$("#cantp").text(jsonObj[8]+" Disponibles");
 		$("#descr").text(jsonObj[9]);
 		$("#colorp").text(jsonObj[10]);
 		$("#conc").text(jsonObj[12]);
-		$("#namec").text(jsonObj[13]);
-		$("#dirc").text(jsonObj[14]);
-		$("#cityc").text(jsonObj[15]);
-		$("#statec").text(jsonObj[16]);
-		$("#counc").text(jsonObj[17]);
-		$("#mailc").text(jsonObj[18]);
-		$("#phonec").text(jsonObj[19]);
+		$("#namec").text("Nombre: "+jsonObj[13]);
+		$("#dirc").text("Dirección: "+jsonObj[14]);
+		$("#cityc").text("Ciudad: "+jsonObj[15]);
+		$("#statec").text("Estado: "+jsonObj[16]);
+		$("#counc").text("País: "+jsonObj[17]);
+		$("#mailc").text("Email: "+jsonObj[18]);
+		$("#phonec").text("Teléfono: "+jsonObj[19]);
 		$(".swiper-wrapper").append('<div id="image1" class="swiper-slide"><img  src="http://icone-solutions.com/mgreen/products/img/'+images[0]+'" /></div>');
 		$(".swiper-wrapper").append('<div id="image1" class="swiper-slide"><img  src="http://icone-solutions.com/mgreen/products/img/'+images[1]+'" /></div>');
 		$.mobile.navigate( "#item", {transition:"slide" });
@@ -624,8 +600,8 @@ $(".prodscon").on('click', 'div > div > .items', function(e){
  	var el = this;
  	if($(this).val()=="Otro"){
  	swal({
-    title: "Color",
-    text: "Escribe el color de tu producto",
+    title: "Otro",
+    text: "Escribe el dato de tu producto",
     showCancelButton: true,
     type: "input",
     inputType: "text",
@@ -633,13 +609,14 @@ $(".prodscon").on('click', 'div > div > .items', function(e){
     confirmButtonText: "Aceptar",
     cancelButtonText: "Cancelar",
      closeOnConfirm: false,
-    inputPlaceholder: "color...",
+    inputPlaceholder: "...",
     },
    function(value){
+   	console.log(value);
      if (value==="") {
        	swal.showInputError("Introduce el nombre del color");
-     }else{
-     	$(el).append("<option value='"+value+"'>"+value+"</option>");
+     }else if(value!=false){
+     	$(el).append("<option id='extraO' value='"+value+"'>"+value+"</option>");
      	$(el).val(value).attr('selected', true);
      	$(el).selectmenu('refresh', true);
      	swal.close();
