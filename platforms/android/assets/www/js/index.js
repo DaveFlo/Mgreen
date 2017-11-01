@@ -34,37 +34,7 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-    	if(localStorage.getItem("user")!=null){
-   
-  var usname= localStorage.getItem("user");
-       $.ajax({
-	url: "http://www.icone-solutions.com/mgreen/sqlOP.php",
-	type: "POST",
-	data: {usname:usname},
-	success: function(data){
-		
-		if(data.toString()=="libre"){
-			$("#filterF").remove();
-		}else if(data.toString()=="premium"){
-			
-		}else{
-			$("#filters").empty();
-			$("#filters").append('<option>Buscar por</option><optgroup  label="Origen">'+
-            '<option value="Post Industrial">Post Industrial</option>'+
-     	    '<option value="Post Consumo">Post Consumo</option>'+
-     	    '<option value="Otro">Otro</option>'+
-       ' </optgroup>'+
-        '<optgroup label="Presentación">'+
-            '<option value="Pieza">Pieza</option>'+
-     	    '<option value="Purga">Purga</option>'+
-     	    '<option value="Barredura">Barredura</option>'+
-     	    '<option value="Molido">Molido</option>'+
-     	    '<option value="Pelet">Pelet</option>'+
-       ' </optgroup>');
-		}
-    }
-    });
-}
+    	
     }
     // Update DOM on a Received Event
     

@@ -32,7 +32,76 @@ function checkC(){
     
   };
     
+    function getP(){
+    	$.ajax({
+	url: "http://www.icone-solutions.com/mgreen/sqlOP.php",
+	type: "POST",
+	data: {mat:"todos"},
+	success: function(data){
+		$("#category").val("Todos");
+		$("#catname").text("Todos");
+		
+		var jsonObj = jQuery.parseJSON(data);
+		var pdi = jsonObj[0].split("+");
+		var name = jsonObj[1].split("+");
+		var price = jsonObj[2].split("+");
+		var esps = jsonObj[3].split("+");
+		var color = jsonObj[4].split("+");
+		var images = jsonObj[5].split("+");
+		
+		var b = "a"
+		if(pdi[0]!=""){
+		for(var i =0; i<pdi.length;i=i+2){
+			var temp = images[i].split(",");
+			
+			if(images[i+1]!=undefined){
+				var temp2 = images[i+1].split(",");
+			$(".prodscon").append('<div class="ui-grid-a"><div class="ui-block-a sprods "><a class="items" data-pid="'+pdi[i]+'" >'+
+    	      '<div class="sellp">'+
+    	      '<div class="imgcon">'+
+    	      '<img width="100%" src="http://icone-solutions.com/mgreen/products/img/'+temp[0]+'" />'+
+    	      '</div>'+
+    	      '<p>'+name[i]+'</p>'+
+    	      '<p>'+price[i]+'</p>'+
+    	      '<p>'+esps[i]+'</p>'+
+    	      '</div>'+
+    	      '</a></div>'+
+    	      '<div class="ui-block-b sprods "><a class="items" data-pid="'+pdi[i+1]+'">'+
+    	      '<div class="sellp">'+
+    	      '<div class="imgcon">'+
+    	      '<img width="100%" src="http://icone-solutions.com/mgreen/products/img/'+temp2[0]+'" />'+
+    	      '</div>'+
+    	      '<p>'+name[i]+'</p>'+
+    	      '<p>'+price[i]+'</p>'+
+    	      '<p>'+esps[i]+'</p>'+
+    	      '</div>'+
+    	      '</a></div>'+
+    	      '</div><br/>');
+    	     }else{
+    	     	
+			$(".prodscon").append('<div class="ui-grid-a"><div class="ui-block-a sprods "><a class="items" data-pid="'+pdi[i]+'" >'+
+    	      '<div class="sellp">'+
+    	      '<div class="imgcon">'+
+    	      '<img width="100%" src="http://icone-solutions.com/mgreen/products/img/'+temp[0]+'" />'+
+    	      '</div>'+
+    	      '<p>'+name[i]+'</p>'+
+    	      '<p>'+price[i]+'</p>'+
+    	      '<p>'+esps[i]+'</p>'+
+    	      '</div>'+
+    	      '</a></div>'+
+    	      
+    	      '</div>');
+    	     }
+	      
+	   }
+	 }else{
+	 	$(".prodscon").append("<h1>No hay productos en esta categoría</h1>");
+	 }
+	   $.mobile.navigate( "#prod", {transition:"flip" });
+    }
     
+  });
+    }
     
     function register(rform){
     var form = new FormData($(rform)[0]);
@@ -114,21 +183,20 @@ function checkC(){
 	cache: false,
 	processData:false,
 	success: function(data){
-		
+		console.log(data);
 	    if(data.toString()=="1"){
 	    	$(".imgup").attr("src","");
 	    	$("#extraO").remove();
-	    	$("#origin").val(value).attr('selected', true);
      	    $("#origin").selectmenu('refresh', true);
 	    	$('#prodForm')[0].reset();
             swal("Listo","Tu anuncio ha sido dado de alta.","success");
-	    	$.mobile.navigate( "#land", { transition : "slide",info: "info about the #foo hash" });
+	    	getP();
 
 
 	    }else if(data.toString()=="0"){
-	    	 swal("Error","Necesitas elegir al menos una imagen","error");
+	    	 swal("Error","Ya haz alcanzado tu límite de publicaciones por mes","error");
 	    	
-	    	}else{
+	    }else{
 	    	
 	    		mes="Ocurrio un error al dar de alta el producto, por favor revisa tu conexión e intentalo de nuevo";
 	    	
@@ -177,7 +245,7 @@ function checkC(){
 
 	    }else{
            
-	    	swal("Error","Usuario inexistente","error");
+	    	swal("Error","Usuario o contraseña incorrectos","error");
 	    }
 	    
 	}
@@ -295,14 +363,14 @@ $(document).ready(function(){
    });
    $("#prodForm").submit(function(e){
     	e.preventDefault();
-	     var empty = $(this).find(".inputp").filter(function() {
+	     var empty = $(this).find(".reqfield").filter(function() {
 	     	
            return this.value === "";
            
         });
         if(empty.length==0){
 	    swal({
-          title: "¿Estás seguro que la información es correta?",
+          title: "¿Estás seguro que la información es correcta?",
           text: "",
           type: "info",
           showCancelButton: true,
@@ -318,12 +386,110 @@ $(document).ready(function(){
             }
          });
         }else{
-        	swal("Error","Debes completar todos los campos","error");
+        	swal("Error","Debes completar los campos requeridos","error");
         }
    });
+   if(localStorage.getItem("user")!=null){
    
-   
-	
+	var usname= localStorage.getItem("user");
+      $.ajax({
+	url: "http://www.icone-solutions.com/mgreen/sqlOP.php",
+	type: "POST",
+	data: {usname:usname},
+	success: function(data){
+		
+		if(data.toString()=="libre"){
+			$("#filterF").remove();
+		}else if(data.toString()=="premium"){
+			$(".mainSM > li:first-child").after('<li data-icon="false"><a class="ownp" > Mis anuncios</a></li>');
+		}else{
+			$(".mainSM > li:first-child").after('<li data-icon="false"><a class="ownp" > Mis anuncios</a></li>');
+			$("#filters").empty();
+			$("#filters").append('<option>Buscar por</option><optgroup label="Material">'+
+ 					'<option value="PET">PET</option>'+
+     	'<option value="PEAD/PEHD">PEAD/PEHD</option>'+
+     	'<option value="PVC">PVC</option>'+
+     	'<option value="PEBD/PELD">PEBD/PELD</option>'+
+     	'<option value="PP">PP</option>'+
+     	'<option value="PS">PS</option>'+
+     	'<option value="Otros">Otros</option>'+
+ 				'</optgroup>');
+		}
+    }
+    });
+   }
+    $(".mainSM").on("click",".ownp",function(e){
+    	
+ 	  e.preventDefault();
+ 	  var usep = localStorage.getItem("usi");
+ 	  $.ajax({
+	url: "http://www.icone-solutions.com/mgreen/sqlOP.php",
+	type: "POST",
+	data: {userp:usep},
+	success: function(data){
+		
+		
+		var jsonObj = jQuery.parseJSON(data);
+		var pdi = jsonObj[0].split("+");
+		var name = jsonObj[1].split("+");
+		var price = jsonObj[2].split("+");
+		var esps = jsonObj[3].split("+");
+		var color = jsonObj[4].split("+");
+		var images = jsonObj[5].split("+");
+		
+		var b = "a"
+		if(pdi[0]!=""){
+		for(var i =0; i<pdi.length;i=i+2){
+			var temp = images[i].split(",");
+			
+			if(images[i+1]!=undefined){
+				var temp2 = images[i+1].split(",");
+			$(".oprodscon").append('<div class="ui-grid-a"><div class="ui-block-a sprods "><a class="items" data-pid="'+pdi[i]+'" >'+
+    	      '<div class="sellp">'+
+    	      '<div class="imgcon">'+
+    	      '<img width="100%" src="http://icone-solutions.com/mgreen/products/img/'+temp[0]+'" />'+
+    	      '</div>'+
+    	      '<p>'+name[i]+'</p>'+
+    	      '<p>'+price[i]+'</p>'+
+    	      '<p>'+esps[i]+'</p>'+
+    	      '</div>'+
+    	      '</a></div>'+
+    	      '<div class="ui-block-b sprods "><a class="items" data-pid="'+pdi[i+1]+'">'+
+    	      '<div class="sellp">'+
+    	      '<div class="imgcon">'+
+    	      '<img width="100%" src="http://icone-solutions.com/mgreen/products/img/'+temp2[0]+'" />'+
+    	      '</div>'+
+    	      '<p>'+name[i]+'</p>'+
+    	      '<p>'+price[i]+'</p>'+
+    	      '<p>'+esps[i]+'</p>'+
+    	      '</div>'+
+    	      '</a></div>'+
+    	      '</div><br/>');
+    	     }else{
+    	     	
+			$(".oprodscon").append('<div class="ui-grid-a"><div class="ui-block-a sprods "><a class="items" data-pid="'+pdi[i]+'" >'+
+    	      '<div class="sellp">'+
+    	      '<div class="imgcon">'+
+    	      '<img width="100%" src="http://icone-solutions.com/mgreen/products/img/'+temp[0]+'" />'+
+    	      '</div>'+
+    	      '<p>'+name[i]+'</p>'+
+    	      '<p>'+price[i]+'</p>'+
+    	      '<p>'+esps[i]+'</p>'+
+    	      '</div>'+
+    	      '</a></div>'+
+    	      
+    	      '</div>');
+    	     }
+	      
+	   }
+	 }else{
+	 	$(".oprodscon").append("<h1>Aún no has hecho publicaciones</h1>");
+	 }
+	   $.mobile.navigate( "#ownprod", {transition:"flip" });
+    }
+    
+  });
+ 	});
  $(".mats").click(function(e){
  	e.preventDefault();
  	$(".prodscon").empty();
@@ -334,7 +500,7 @@ $(document).ready(function(){
 	data: {mat:mat},
 	success: function(data){
 		$("#category").val(mat);
-		$("#catname").text(mat);
+		
 		
 		var jsonObj = jQuery.parseJSON(data);
 		var pdi = jsonObj[0].split("+");
@@ -390,7 +556,7 @@ $(document).ready(function(){
 	      
 	   }
 	 }else{
-	 	$(".prodscon").append("<h1>No hay productos en esta categoría</h1>");
+	 	$(".prodscon").append("<h1>No hay anuncios disponibles</h1>");
 	 }
 	   $.mobile.navigate( "#prod", {transition:"flip" });
     }
@@ -428,7 +594,25 @@ $(document).ready(function(){
  	$('#joba').selectmenu('refresh', true);
  	
  });
- 
+ $(".sellA").click(function(e){
+ 	e.preventDefault();
+ 	if( $( "#sellPanel" ).hasClass("ui-panel-open") == true ){
+ 		$( "#sellPanel" ).panel( "close" );
+ 	}
+ 	
+ 	var atype = $(this).data("prodoption");
+ 	if(atype=="comprar"){
+ 		$("#sellT").text("¿Qué deseas comprar?");
+ 		$("#pictures").hide();
+ 		$(".iprice").hide();
+ 	}else{
+ 		$("#sellT").text("¿Qué deseas vender?");
+ 		$("#pictures").show();
+ 		$(".iprice").show();
+ 	}
+ 	$("#prodForm").append('<input type="hidden" name="atype" value="'+atype+'" />');
+ 	$.mobile.navigate( "#sell", {transition:"slideup", info: "info about the #foo hash" });
+ });
  $(".account").click(function(){
  	var idu = localStorage.getItem("user");
  	$.ajax({
@@ -436,10 +620,11 @@ $(document).ready(function(){
 	type: "POST",
 	data: {idu:idu},
 	success: function(data){
-		
+		console.log(data);
 		var obj = jQuery.parseJSON(data);
 		datosp =obj;
 		$("#nombrea").val(obj[1]);
+		$("#passa").val(obj[20]);
 		$("#compa").val(obj[2]);
 		$("#addressa").val(obj[3]);
 		$("#statea").val(obj[4]);
@@ -448,6 +633,7 @@ $(document).ready(function(){
 		$("#telefonoa").val(obj[8]);
 		$("#cellpa").val(obj[9]);
 		$("#joba").val(obj[10]);
+		$('#joba').selectmenu('refresh', true);
 	}
 	});
  });
@@ -528,7 +714,7 @@ $(document).ready(function(){
 	      
 	   }
 	 }else{
-	 	$(".prodscon").append("<h1>No hay productos en esta categoría</h1>");
+	 	$(".prodscon").append("<h1>No hay anuncios que coincidan con los filtros de búsqueda</h1>");
 	 }
 	  $.mobile.loading( "hide" );
 	   //$.mobile.navigate( "#prod", {transition:"flip" });
@@ -558,7 +744,7 @@ $(".close").click(function(){
    	}
    });
 $(".usern").text(localStorage.getItem("user"));
-$(".prodscon").on('click', 'div > div > .items', function(e){ 
+$(".prodscon, .oprodscon").on('click', 'div > div > .items', function(e){ 
 	
 	var pid = $(this).data("pid");
  	$(".swiper-wrapper").empty();
@@ -612,9 +798,9 @@ $(".prodscon").on('click', 'div > div > .items', function(e){
     inputPlaceholder: "...",
     },
    function(value){
-   	console.log(value);
+   	
      if (value==="") {
-       	swal.showInputError("Introduce el nombre del color");
+       	swal.showInputError("Introduce el nombre del atributo");
      }else if(value!=false){
      	$(el).append("<option id='extraO' value='"+value+"'>"+value+"</option>");
      	$(el).val(value).attr('selected', true);
