@@ -243,6 +243,7 @@ function checkC(){
 	    	var datos = data.toString().split(",");
 	    	user = datos[0];
 	    	usi = datos[1];
+	    	$(".usern").text(user);
 	    	localStorage.setItem("user",user);
 	    	localStorage.setItem("usi",usi);
 	    	$.mobile.navigate( "#land", { transition : "slide",info: "info about the #foo hash" });
@@ -762,7 +763,7 @@ $(".prodscon, .oprodscon").on('click', 'div > div > .items', function(e){
 		var jsonObj = jQuery.parseJSON(data);
 		var images = jsonObj[11].split(",");
 		var precio ="";
-		if(jsonObj[7]=="s/p"){
+		if(jsonObj[15]=="compra"){
 			precio = "Anuncio de compra"
 		}else{
 			precio = "$"+jsonObj[7];
