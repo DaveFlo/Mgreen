@@ -756,7 +756,12 @@ $(".prodscon, .oprodscon").on('click', 'div > div > .items', function(e){
 		
 		var jsonObj = jQuery.parseJSON(data);
 		var images = jsonObj[11].split(",");
-		
+		var precio ="";
+		if(jsonObj[7]=="s/p"){
+			precio = "Anuncio de compra"
+		}else{
+			precio = "$"+jsonObj[7];
+		}
 		$(".backb").text(jsonObj[1]);
 		$("#namep").text("Material: "+jsonObj[1]);
 		$("#orip").text("Origen: "+jsonObj[2]);
@@ -764,7 +769,7 @@ $(".prodscon, .oprodscon").on('click', 'div > div > .items', function(e){
 		$("#empaqp").text("Empaque: "+jsonObj[4]);
 		$("#unitp").text("Unidad: "+jsonObj[5]);
 		$("#recp").text("Recurrencia: "+jsonObj[6]);
-		$("#pricep").text("$"+jsonObj[7]);
+		$("#pricep").text(precio);
 		$("#cantp").text(jsonObj[8]+" Disponibles");
 		$("#descr").text(jsonObj[9]);
 		$("#colorp").text(jsonObj[10]);
