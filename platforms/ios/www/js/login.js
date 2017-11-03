@@ -113,12 +113,17 @@ function checkC(){
 	cache: false,
 	processData:false,
 	success: function(data){
-		
-	    if(data.toString()=="1"){
-	    	
+		var d = data.split(",");
+		console.log(data);
+	    if(d[0]=="1"){
+	    	user = d[1];
+	    	usi = d[2];
+	    	localStorage.setItem("user",user);
+	    	localStorage.setItem("usi",usi);
+	    	$(".usern").text(user);
 	    	$(rform)[0].reset();
             swal("Listo","Tu usuario ha sido registrado exitosamente.","success");
-	    	$.mobile.navigate( "#inicio", { transition : "slide",info: "info about the #foo hash" });
+	    	$.mobile.navigate( "#land", { transition : "slide",info: "info about the #foo hash" });
 
 
 	    }else{
@@ -770,7 +775,7 @@ $(".prodscon, .oprodscon").on('click', 'div > div > .items', function(e){
 		$("#unitp").text("Unidad: "+jsonObj[5]);
 		$("#recp").text("Recurrencia: "+jsonObj[6]);
 		$("#pricep").text(precio);
-		$("#cantp").text(jsonObj[8]+" Disponibles");
+		$("#cantp").text("Cantidad: "+jsonObj[8]+" Disponibles");
 		$("#descr").text(jsonObj[9]);
 		$("#colorp").text(jsonObj[10]);
 		$("#conc").text(jsonObj[12]);
