@@ -538,9 +538,9 @@ $(document).ready(function(){
     	      '<div class="imgcon">'+
     	      '<img width="100%" src="http://icone-solutions.com/mgreen/products/img/'+temp2[0]+'" />'+
     	      '</div>'+
-    	      '<p>'+name[i]+'</p>'+
-    	      '<p>'+price[i]+'</p>'+
-    	      '<p>'+esps[i]+'</p>'+
+    	      '<p>'+name[i+1]+'</p>'+
+    	      '<p>'+price[i+1]+'</p>'+
+    	      '<p>'+esps[i+1]+'</p>'+
     	      '</div>'+
     	      '</a></div>'+
     	      '</div><br/>');
