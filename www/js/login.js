@@ -419,7 +419,7 @@ $(document).ready(function(){
     });
    }
     $(".mainSM").on("click",".ownp",function(e){
-    	
+    	$(".oprodscon").empty();
  	  e.preventDefault();
  	  var usep = localStorage.getItem("usi");
  	  $.ajax({
@@ -620,7 +620,7 @@ $(document).ready(function(){
 	type: "POST",
 	data: {idu:idu},
 	success: function(data){
-		console.log(data);
+		
 		var obj = jQuery.parseJSON(data);
 		datosp =obj;
 		$("#nombrea").val(obj[1]);

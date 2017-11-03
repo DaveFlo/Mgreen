@@ -419,7 +419,7 @@ $(document).ready(function(){
     });
    }
     $(".mainSM").on("click",".ownp",function(e){
-    	
+    	$(".oprodscon").empty();
  	  e.preventDefault();
  	  var usep = localStorage.getItem("usi");
  	  $.ajax({
@@ -620,7 +620,7 @@ $(document).ready(function(){
 	type: "POST",
 	data: {idu:idu},
 	success: function(data){
-		console.log(data);
+		
 		var obj = jQuery.parseJSON(data);
 		datosp =obj;
 		$("#nombrea").val(obj[1]);
@@ -800,7 +800,7 @@ $(".prodscon, .oprodscon").on('click', 'div > div > .items', function(e){
    function(value){
    	
      if (value==="") {
-       	swal.showInputError("Introduce el nombre del color");
+       	swal.showInputError("Introduce el nombre del atributo");
      }else if(value!=false){
      	$(el).append("<option id='extraO' value='"+value+"'>"+value+"</option>");
      	$(el).val(value).attr('selected', true);
