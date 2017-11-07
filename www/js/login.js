@@ -99,7 +99,12 @@ function checkC(){
 	 	$(".prodscon").append("<h1>No hay productos en esta categoría</h1>");
 	 }
 	   $.mobile.navigate( "#prod", {transition:"flip" });
-    }
+   },
+   error: function(){
+   	    $(".prodscon").append("<h1>No hay productos en esta categoría</h1>");
+   	    $.mobile.navigate( "#prod", {transition:"flip" });
+		swal("Error","Tu dispositivo no cuenta con una conexión a internet actualmente","error");
+	}
     
   });
     }
@@ -137,6 +142,10 @@ function checkC(){
            swal("Error",mes,"error");
 	    }
 	   
+	},
+
+	error: function(){
+		swal("Error","Actualmente tu dispositivo no cuenta con una conexión a internet","error");
 	}
 
         });
@@ -173,6 +182,10 @@ function checkC(){
            swal("Error","No se han podido modificar tus datos, revisa tu conexión e intentalo de nuevo","error");
 	    }
 	   
+	},
+
+	error: function(){
+		swal("Error","Actualmente tu dispositivo no cuenta con una conexión a internet","error");
 	}
 
         });
@@ -209,6 +222,9 @@ function checkC(){
            swal("Error",mes,"error");
 	    }
 	   
+	},
+	error: function(){
+		swal("Error","Actualmente tu dispositivo no cuenta con una conexión a internet","error");
 	}
 
         });
@@ -255,8 +271,11 @@ function checkC(){
 	    	swal("Error","Usuario o contraseña incorrectos","error");
 	    }
 	    
-	}
+	},
 
+	error: function(){
+		swal("Error","Actualmente tu dispositivo no cuenta con una conexión a internet","error");
+	}
         });
     }
 var connectionStatus = false;
@@ -566,8 +585,12 @@ $(document).ready(function(){
 	 	$(".prodscon").append("<h1>No hay anuncios disponibles</h1>");
 	 }
 	   $.mobile.navigate( "#prod", {transition:"flip" });
-    }
-    
+   },
+    error: function(){
+   	    $(".prodscon").append("<h1>No hay productos en esta categoría</h1>");
+   	    $.mobile.navigate( "#prod", {transition:"flip" });
+		swal("Error","Actualmente tu dispositivo no cuenta con una conexión a internet ","error");
+	}
   });
  });
  var datosp= Array();
