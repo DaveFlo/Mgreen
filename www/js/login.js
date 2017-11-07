@@ -779,7 +779,7 @@ $(".prodscon, .oprodscon").on('click', 'div > div > .items', function(e){
 		$("#unitp").text("Unidad: "+jsonObj[5]);
 		$("#recp").text("Recurrencia: "+jsonObj[6]);
 		$("#pricep").text(precio);
-		$("#cantp").text("Cantidad: "+jsonObj[8]+" Disponibles");
+		$("#cantp").text("Cantidad: "+jsonObj[8]+" "+jsonObj[5]);
 		$("#descr").text(jsonObj[9]);
 		$("#colorp").text(jsonObj[10]);
 		$("#conc").text(jsonObj[12]);
