@@ -768,9 +768,12 @@ $(".prodscon, .oprodscon").on('click', 'div > div > .items', function(e){
 			precio = "Anuncio de compra";
 			$(".pricetag").hide();
 		}else{
-			precio = "$"+jsonObj[7];
+			var pr = parseFloat(jsonObj[7]);
+			precio = "$"+pr.toLocaleString('en-US', { maximumFractionDigits: 2,minimumFractionDigits: 2 });
 			$(".pricetag").show();
 		}
+		var ct = parseFloat(jsonObj[8]);
+		
 		$(".backb").text(jsonObj[1]);
 		$("#namep").text("Material: "+jsonObj[1]);
 		$("#orip").text("Origen: "+jsonObj[2]);
@@ -779,7 +782,7 @@ $(".prodscon, .oprodscon").on('click', 'div > div > .items', function(e){
 		$("#unitp").text("Unidad: "+jsonObj[5]);
 		$("#recp").text("Recurrencia: "+jsonObj[6]);
 		$("#pricep").text(precio);
-		$("#cantp").text("Cantidad: "+jsonObj[8]+" "+jsonObj[5]);
+		$("#cantp").text("Cantidad: "+ct.toLocaleString('en-US', { maximumFractionDigits: 2,minimumFractionDigits: 0 })+" "+jsonObj[5]);
 		$("#descr").text(jsonObj[9]);
 		$("#colorp").text(jsonObj[10]);
 		$("#conc").text(jsonObj[12]);
