@@ -35,7 +35,7 @@ function checkC(){
     function getP(){
     	$(".prodscon").empty();
     	$.ajax({
-	url: "http://www.icone-solutions.com/mgreen/sqlOP.php",
+	url: "http://www.reciclajelibre.com/sqlOP.php",
 	type: "POST",
 	data: {mat:"todos"},
 	success: function(data){
@@ -60,7 +60,7 @@ function checkC(){
 			$(".prodscon").append('<div class="ui-grid-a"><div class="ui-block-a sprods "><a class="items" data-pid="'+pdi[i]+'" >'+
     	      '<div class="sellp">'+
     	      '<div class="imgcon">'+
-    	      '<img width="100%" src="http://icone-solutions.com/mgreen/products/img/'+temp[0]+'" />'+
+    	      '<img width="100%" src="http://www.reciclajelibre.com/products/img/'+temp[0]+'" />'+
     	      '</div>'+
     	      '<p>'+name[i]+'</p>'+
     	      '<p>'+price[i]+'</p>'+
@@ -70,7 +70,7 @@ function checkC(){
     	      '<div class="ui-block-b sprods "><a class="items" data-pid="'+pdi[i+1]+'">'+
     	      '<div class="sellp">'+
     	      '<div class="imgcon">'+
-    	      '<img width="100%" src="http://icone-solutions.com/mgreen/products/img/'+temp2[0]+'" />'+
+    	      '<img width="100%" src="http://www.reciclajelibre.com/products/img/'+temp2[0]+'" />'+
     	      '</div>'+
     	      '<p>'+name[i]+'</p>'+
     	      '<p>'+price[i]+'</p>'+
@@ -83,7 +83,7 @@ function checkC(){
 			$(".prodscon").append('<div class="ui-grid-a"><div class="ui-block-a sprods "><a class="items" data-pid="'+pdi[i]+'" >'+
     	      '<div class="sellp">'+
     	      '<div class="imgcon">'+
-    	      '<img width="100%" src="http://icone-solutions.com/mgreen/products/img/'+temp[0]+'" />'+
+    	      '<img width="100%" src="http://www.reciclajelibre.com/products/img/'+temp[0]+'" />'+
     	      '</div>'+
     	      '<p>'+name[i]+'</p>'+
     	      '<p>'+price[i]+'</p>'+
@@ -112,7 +112,7 @@ function checkC(){
     function register(rform){
     var form = new FormData($(rform)[0]);
     	$.ajax({
-	url: "http://www.icone-solutions.com/mgreen/subscription.php",
+	url: "http://www.reciclajelibre.com/subscription.php",
 	type: "POST",
 	data: form,
 	contentType: false,
@@ -154,7 +154,7 @@ function checkC(){
     var form = new FormData($("#accForm")[0]);
     form.append("userm",localStorage.getItem("user"));
     	$.ajax({
-	url: "http://www.icone-solutions.com/mgreen/sqlOP.php",
+	url: "http://www.reciclajelibre.com/sqlOP.php",
 	type: "POST",
 	data: form,
 	contentType: false,
@@ -195,7 +195,7 @@ function checkC(){
     form.append("usi",localStorage.getItem("usi"));
     
     	$.ajax({
-	url: "http://www.icone-solutions.com/mgreen/sqlOP.php",
+	url: "http://www.reciclajelibre.com/sqlOP.php",
 	type: "POST",
 	data: form,
 	contentType: false,
@@ -246,7 +246,7 @@ function checkC(){
     	
     //form.append("regID",localStorage.getItem('registrationId'));
     $.ajax({
-	url: "http://www.icone-solutions.com/mgreen/sqlOP.php",
+	url: "http://www.reciclajelibre.com/sqlOP.php",
 	type: "POST",
 	data: form,
 	contentType: false,
@@ -419,7 +419,7 @@ $(document).ready(function(){
    
 	var usname= localStorage.getItem("user");
       $.ajax({
-	url: "http://www.icone-solutions.com/mgreen/sqlOP.php",
+	url: "http://www.reciclajelibre.com/sqlOP.php",
 	type: "POST",
 	data: {usname:usname},
 	success: function(data){
@@ -449,7 +449,7 @@ $(document).ready(function(){
  	  e.preventDefault();
  	  var usep = localStorage.getItem("usi");
  	  $.ajax({
-	url: "http://www.icone-solutions.com/mgreen/sqlOP.php",
+	url: "http://www.reciclajelibre.com/sqlOP.php",
 	type: "POST",
 	data: {userp:usep},
 	success: function(data){
@@ -473,7 +473,7 @@ $(document).ready(function(){
 			$(".oprodscon").append('<div class="ui-grid-a"><div class="ui-block-a sprods "><a class="items" data-pid="'+pdi[i]+'" >'+
     	      '<div class="sellp">'+
     	      '<div class="imgcon">'+
-    	      '<img width="100%" src="http://icone-solutions.com/mgreen/products/img/'+temp[0]+'" />'+
+    	      '<img width="100%" src="http://www.reciclajelibre.com/products/img/'+temp[0]+'" />'+
     	      '</div>'+
     	      '<p>'+name[i]+'</p>'+
     	      '<p>'+price[i]+'</p>'+
@@ -483,7 +483,7 @@ $(document).ready(function(){
     	      '<div class="ui-block-b sprods "><a class="items" data-pid="'+pdi[i+1]+'">'+
     	      '<div class="sellp">'+
     	      '<div class="imgcon">'+
-    	      '<img width="100%" src="http://icone-solutions.com/mgreen/products/img/'+temp2[0]+'" />'+
+    	      '<img width="100%" src="http://www.reciclajelibre.com/products/img/'+temp2[0]+'" />'+
     	      '</div>'+
     	      '<p>'+name[i+1]+'</p>'+
     	      '<p>'+price[i+1]+'</p>'+
@@ -496,7 +496,7 @@ $(document).ready(function(){
 			$(".oprodscon").append('<div class="ui-grid-a"><div class="ui-block-a sprods "><a class="items" data-pid="'+pdi[i]+'" >'+
     	      '<div class="sellp">'+
     	      '<div class="imgcon">'+
-    	      '<img width="100%" src="http://icone-solutions.com/mgreen/products/img/'+temp[0]+'" />'+
+    	      '<img width="100%" src="http://www.reciclajelibre.com/products/img/'+temp[0]+'" />'+
     	      '</div>'+
     	      '<p>'+name[i]+'</p>'+
     	      '<p>'+price[i]+'</p>'+
@@ -521,7 +521,7 @@ $(document).ready(function(){
  	$(".prodscon").empty();
  	var mat = $(this).data("material");
  	$.ajax({
-	url: "http://www.icone-solutions.com/mgreen/sqlOP.php",
+	url: "http://www.reciclajelibre.com/sqlOP.php",
 	type: "POST",
 	data: {mat:mat},
 	success: function(data){
@@ -546,7 +546,7 @@ $(document).ready(function(){
 			$(".prodscon").append('<div class="ui-grid-a"><div class="ui-block-a sprods "><a class="items" data-pid="'+pdi[i]+'" >'+
     	      '<div class="sellp">'+
     	      '<div class="imgcon">'+
-    	      '<img width="100%" src="http://icone-solutions.com/mgreen/products/img/'+temp[0]+'" />'+
+    	      '<img width="100%" src="http://www.reciclajelibre.com/products/img/'+temp[0]+'" />'+
     	      '</div>'+
     	      '<p>'+name[i]+'</p>'+
     	      '<p>'+price[i]+'</p>'+
@@ -556,7 +556,7 @@ $(document).ready(function(){
     	      '<div class="ui-block-b sprods "><a class="items" data-pid="'+pdi[i+1]+'">'+
     	      '<div class="sellp">'+
     	      '<div class="imgcon">'+
-    	      '<img width="100%" src="http://icone-solutions.com/mgreen/products/img/'+temp2[0]+'" />'+
+    	      '<img width="100%" src="http://www.reciclajelibre.com/products/img/'+temp2[0]+'" />'+
     	      '</div>'+
     	      '<p>'+name[i+1]+'</p>'+
     	      '<p>'+price[i+1]+'</p>'+
@@ -569,7 +569,7 @@ $(document).ready(function(){
 			$(".prodscon").append('<div class="ui-grid-a"><div class="ui-block-a sprods "><a class="items" data-pid="'+pdi[i]+'" >'+
     	      '<div class="sellp">'+
     	      '<div class="imgcon">'+
-    	      '<img width="100%" src="http://icone-solutions.com/mgreen/products/img/'+temp[0]+'" />'+
+    	      '<img width="100%" src="http://www.reciclajelibre.com/products/img/'+temp[0]+'" />'+
     	      '</div>'+
     	      '<p>'+name[i]+'</p>'+
     	      '<p>'+price[i]+'</p>'+
@@ -635,18 +635,29 @@ $(document).ready(function(){
  		$("#sellT").text("¿Qué deseas comprar?");
  		$("#pictures").hide();
  		$(".iprice").hide();
+ 		$("#mate").append("<option  value='Todo tipo de plásticos'>Todo tipo de plásticos</option>");
+ 		
  	}else{
  		$("#sellT").text("¿Qué deseas vender?");
  		$("#pictures").show();
  		$(".iprice").show();
+ 		$("#mate option[value='Todo tipo de plásticos']").remove();
+ 		
  	}
  	$("#prodForm").append('<input type="hidden" name="atype" value="'+atype+'" />');
+ 	try {
+ 	$('#mate').selectmenu('refresh', true);
+ 	}catch(err){
+ 		
+ 	}
  	$.mobile.navigate( "#sell", {transition:"slideup", info: "info about the #foo hash" });
+ 	
+ 	
  });
  $(".account").click(function(){
  	var idu = localStorage.getItem("user");
  	$.ajax({
-	url: "http://www.icone-solutions.com/mgreen/sqlOP.php",
+	url: "http://www.reciclajelibre.com/sqlOP.php",
 	type: "POST",
 	data: {idu:idu},
 	success: function(data){
@@ -680,7 +691,7 @@ $(document).ready(function(){
     });
  	 var form = new FormData($("#filterF")[0]);
     $.ajax({
-	url: "http://www.icone-solutions.com/mgreen/sqlOP.php",
+	url: "http://www.reciclajelibre.com/sqlOP.php",
 	type: "POST",
 	data: form,
 	contentType: false,
@@ -708,7 +719,7 @@ $(document).ready(function(){
 			$(".prodscon").append('<div class="ui-grid-a"><div class="ui-block-a sprods "><a class="items" data-pid="'+pdi[i]+'" >'+
     	      '<div class="sellp">'+
     	      '<div class="imgcon">'+
-    	      '<img width="100%" src="http://icone-solutions.com/mgreen/products/img/'+temp[0]+'" />'+
+    	      '<img width="100%" src="http://www.reciclajelibre.com/products/img/'+temp[0]+'" />'+
     	      '</div>'+
     	     '<p>'+name[i]+'</p>'+
     	      '<p>'+price[i]+'</p>'+
@@ -718,7 +729,7 @@ $(document).ready(function(){
     	      '<div class="ui-block-b sprods "><a class="items" data-pid="'+pdi[i+1]+'">'+
     	      '<div class="sellp">'+
     	      '<div class="imgcon">'+
-    	      '<img width="100%" src="http://icone-solutions.com/mgreen/products/img/'+temp2[0]+'" />'+
+    	      '<img width="100%" src="http://www.reciclajelibre.com/products/img/'+temp2[0]+'" />'+
     	      '</div>'+
     	      '<p>'+name[i]+'</p>'+
     	      '<p>'+price[i]+'</p>'+
@@ -731,7 +742,7 @@ $(document).ready(function(){
 			$(".prodscon").append('<div class="ui-grid-a"><div class="ui-block-a sprods "><a class="items" data-pid="'+pdi[i]+'" >'+
     	      '<div class="sellp">'+
     	      '<div class="imgcon">'+
-    	      '<img width="100%" src="http://icone-solutions.com/mgreen/products/img/'+temp[0]+'" />'+
+    	      '<img width="100%" src="http://www.reciclajelibre.com/products/img/'+temp[0]+'" />'+
     	      '</div>'+
     	      '<p>'+name[i]+'</p>'+
     	      '<p>'+price[i]+'</p>'+
@@ -779,7 +790,7 @@ $(".prodscon, .oprodscon").on('click', 'div > div > .items', function(e){
 	var pid = $(this).data("pid");
  	$(".swiper-wrapper").empty();
  	$.ajax({
-	url: "http://www.icone-solutions.com/mgreen/sqlOP.php",
+	url: "http://www.reciclajelibre.com/sqlOP.php",
 	type: "POST",
 	data: {pid:pid},
 	success: function(data){
@@ -816,8 +827,8 @@ $(".prodscon, .oprodscon").on('click', 'div > div > .items', function(e){
 		$("#counc").text("País: "+jsonObj[17]);
 		$("#mailc").text("Email: "+jsonObj[18]);
 		$("#phonec").text("Teléfono: "+jsonObj[19]);
-		$(".swiper-wrapper").append('<div id="image1" class="swiper-slide"><img  src="http://icone-solutions.com/mgreen/products/img/'+images[0]+'" /></div>');
-		$(".swiper-wrapper").append('<div id="image1" class="swiper-slide"><img  src="http://icone-solutions.com/mgreen/products/img/'+images[1]+'" /></div>');
+		$(".swiper-wrapper").append('<div id="image1" class="swiper-slide"><img  src="http://www.reciclajelibre.com/products/img/'+images[0]+'" /></div>');
+		$(".swiper-wrapper").append('<div id="image1" class="swiper-slide"><img  src="http://www.reciclajelibre.com/products/img/'+images[1]+'" /></div>');
 		$.mobile.navigate( "#item", {transition:"slide" });
 	}
 	});
