@@ -120,7 +120,7 @@ function checkC(){
 	processData:false,
 	success: function(data){
 		var d = data.split(",");
-		console.log(data);
+		
 	    if(d[0]=="1"){
 	    	user = d[1];
 	    	usi = d[2];
@@ -202,7 +202,7 @@ function checkC(){
 	cache: false,
 	processData:false,
 	success: function(data){
-		console.log(data);
+		
 	    if(data.toString()=="1"){
 	    	$(".imgup").attr("src","");
 	    	$("#extraO").remove();

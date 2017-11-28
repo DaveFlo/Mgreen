@@ -8,49 +8,46 @@
   },
   "installed_plugins": {
     "cordova-plugin-battery-status": {
-      "PACKAGE_NAME": "com.phonegap.helloworld"
+      "PACKAGE_NAME": "com.phonegap.Reciclajelibre"
     },
     "cordova-plugin-camera": {
-      "PACKAGE_NAME": "com.phonegap.helloworld"
+      "PACKAGE_NAME": "com.phonegap.Reciclajelibre"
     },
     "cordova-plugin-device": {
-      "PACKAGE_NAME": "com.phonegap.helloworld"
+      "PACKAGE_NAME": "com.phonegap.Reciclajelibre"
     },
     "cordova-plugin-dialogs": {
-      "PACKAGE_NAME": "com.phonegap.helloworld"
+      "PACKAGE_NAME": "com.phonegap.Reciclajelibre"
     },
     "cordova-plugin-geolocation": {
-      "PACKAGE_NAME": "com.phonegap.helloworld"
+      "PACKAGE_NAME": "com.phonegap.Reciclajelibre"
     },
     "cordova-plugin-globalization": {
-      "PACKAGE_NAME": "com.phonegap.helloworld"
+      "PACKAGE_NAME": "com.phonegap.Reciclajelibre"
     },
     "cordova-plugin-inappbrowser": {
-      "PACKAGE_NAME": "com.phonegap.helloworld"
+      "PACKAGE_NAME": "com.phonegap.Reciclajelibre"
     },
     "cordova-plugin-media-capture": {
-      "PACKAGE_NAME": "com.phonegap.helloworld"
+      "PACKAGE_NAME": "com.phonegap.Reciclajelibre"
     },
     "cordova-plugin-network-information": {
-      "PACKAGE_NAME": "com.phonegap.helloworld"
+      "PACKAGE_NAME": "com.phonegap.Reciclajelibre"
     },
     "cordova-plugin-vibration": {
-      "PACKAGE_NAME": "com.phonegap.helloworld"
-    },
-    "phonegap-plugin-push": {
-      "SENDER_ID": "85075801930",
       "PACKAGE_NAME": "com.phonegap.Reciclajelibre"
     },
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.phonegap.Reciclajelibre"
+    },
+    "phonegap-plugin-push": {
+      "SENDER_ID": "85075801930",
+      "PACKAGE_NAME": "com.phonegap.Reciclajelibre"
     }
   },
   "dependent_plugins": {
-    "cordova-plugin-compat": {
-      "PACKAGE_NAME": "com.phonegap.helloworld"
-    },
     "cordova-plugin-file": {
-      "PACKAGE_NAME": "com.phonegap.helloworld"
+      "PACKAGE_NAME": "com.phonegap.Reciclajelibre"
     }
   }
 }
